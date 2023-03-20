@@ -3,7 +3,7 @@
 
 
 def matrix_shape(matrix):
-    """This function calculates the dimesions of a matrix and 
+    """This function calculates the dimesions of a matrix and
         returns it in a list of integers"""
     res = []
     block = matrix
