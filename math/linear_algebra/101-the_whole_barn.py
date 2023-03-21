@@ -3,6 +3,7 @@
 
 
 def add_matrices(mat1, mat2):
+    """This function adds two matrices"""
     if not isinstance(mat1, type(mat2)):
         return None
     if isinstance(mat1, list):
