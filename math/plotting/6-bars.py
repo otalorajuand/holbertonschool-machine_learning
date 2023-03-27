@@ -24,4 +24,5 @@ plt.bar(x, fruit[3], bottom=fruit[0] + fruit[1] + fruit[2], color='#ffe5b4',
 plt.legend(loc='upper right')
 plt.ylabel('Quantity of Fruit')
 plt.title('Number of Fruit per Person')
+plt.ylim([0, 80])
 plt.show()
