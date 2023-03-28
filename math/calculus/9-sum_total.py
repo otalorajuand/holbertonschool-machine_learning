@@ -5,6 +5,6 @@
 def summation_i_squared(n):
     """This function calculates the sum of the numbers squared
     until n"""
-    if type(n) is not float:
+    if type(n) not in [float, int]:
         return None
-    return (n * (n + 1) * (2 * n + 1)) / 6
+    return int((n * (n + 1) * (2 * n + 1)) / 6)
