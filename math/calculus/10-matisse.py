@@ -4,8 +4,8 @@
 
 def poly_derivative(poly):
     """This function calculates the derivative of poly"""
-    if len(poly) == 1:
-        return [0]
     if not isinstance(poly, list):
         return None
+    if len(poly) == 1:
+        return [0]
     return [(index + 1) * elem for index, elem in enumerate(poly[1:])]
