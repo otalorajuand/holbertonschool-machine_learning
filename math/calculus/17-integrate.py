@@ -4,7 +4,7 @@
 
 def poly_integral(poly, C=0):
     """This function calculates the integral of poly"""
-    if poly == 0:
+    if poly == [0]:
         return [C]
     if not isinstance(poly, list):
         return None
