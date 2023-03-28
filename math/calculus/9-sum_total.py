@@ -6,7 +6,4 @@ def summation_i_squared(n):
     """This function calculates the sum of the numbers squared
     until n"""
 
-    summation = 0
-    for i in range(n + 1):
-        summation += i ** 2
-    return summation
+    return (n * (n + 1) * (2 * n + 1)) / 6
