@@ -4,6 +4,7 @@
 
 class Exponential:
     """This class represents a exponential distribution"""
+
     def __init__(self, data=None, lambtha=1.):
         if data is None:
             if lambtha <= 0:
@@ -11,10 +12,8 @@ class Exponential:
             else:
                 self.lambtha = float(lambtha)
         else:
-            if type(data) is not list:
+            if not isinstance(data, list):
                 raise TypeError("data must be a list")
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
-            self.lambtha = 1/float(sum(data)/len(data))
-
-
+            self.lambtha = 1 / float(sum(data) / len(data))
