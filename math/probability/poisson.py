@@ -23,4 +23,9 @@ class Poisson:
         e = 2.7182818285
         if type(k) is not int:
             k = int(k)
-        return ((e**(-self.lambtha))*(self.lambtha**k))/math.factorial(k)
+
+        fact = 1
+        for i in range(1, k+1):
+            fact = fact * i
+
+        return ((e**(-self.lambtha))*(self.lambtha**k))/fact
