@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """This module contains the class Normal"""
+import math
 
 
 class Normal:
@@ -28,3 +29,10 @@ class Normal:
     def x_value(self, z):
         """Calculates the x-value of a given z-score"""
         return (z * self.stddev) + self.mean
+
+    def pdf(self, x):
+        """Calculates the value of the PDF for a given x-value"""
+        pi = 3.1415926536
+        e = 2.7182818285
+        constant = 1 / (self.stddev * math.sqrt(2 * pi))
+        return constant * (e ** (-0.5*((x - self.mean)/self.stddev) ** 2)) 
