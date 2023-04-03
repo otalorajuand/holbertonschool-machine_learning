@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """This module contains the class Normal"""
-import math
 
 
 class Normal:
