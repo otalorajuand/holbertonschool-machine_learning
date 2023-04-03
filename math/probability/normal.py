@@ -41,6 +41,9 @@ class Normal:
         pi = 3.1415926536
         e = 2.7182818285
         norm_x = (x - self.mean) / (self.stddev * (2**0.5))
-        erf = (2 / (pi**0.5)) * (norm_x - ((norm_x**3) / 3) + \
-               ((norm_x**5) / 10) - ((norm_x**7) / 42) + ((norm_x**9) / 216))
+        term_1 = ((norm_x**3) / 3)
+        term_2 = ((norm_x**5) / 10)
+        term_3 = ((norm_x**7) / 42)
+        term_4 = ((norm_x**9) / 216)
+        erf = (2 / (pi**0.5)) * (norm_x - term_1 + term_2 - term_3 + term_4)
         return 0.5 * (1 + erf)
