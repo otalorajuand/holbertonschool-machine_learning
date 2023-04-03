@@ -23,7 +23,7 @@ class Normal:
 
     def z_score(self, x):
         """Calculates the z-score of a given x-value"""
-        return (x - self.mean)/self.stddev
+        return (x - self.mean) / self.stddev
 
     def x_value(self, z):
         """Calculates the x-value of a given z-score"""
@@ -34,4 +34,4 @@ class Normal:
         pi = 3.1415926536
         e = 2.7182818285
         constant = 1 / (self.stddev * (2 * pi) ** 0.5)
-        return constant * (e ** (-0.5*((x - self.mean)/self.stddev) ** 2)) 
+        return constant * (e ** (-0.5 * ((x - self.mean) / self.stddev) ** 2))
