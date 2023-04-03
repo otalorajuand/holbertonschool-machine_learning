@@ -35,3 +35,12 @@ class Normal:
         e = 2.7182818285
         constant = 1 / (self.stddev * (2 * pi) ** 0.5)
         return constant * (e ** (-0.5 * ((x - self.mean) / self.stddev) ** 2))
+
+    def cdf(self, x):
+        """Calculates the value of the CDF for a given x-value"""
+        pi = 3.1415926536
+        e = 2.7182818285
+        norm_x = (x - self.mean) / (self.stddev * (2**0.5))
+        erf = (2 / (pi**0.5)) * (norm_x - ((norm_x**3) / 3) + \
+               ((norm_x**5) / 10) - ((norm_x**7) / 42) + ((norm_x**9) / 216))
+        return 0.5 * (1 + erf)
