@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """This module contains the class Poisson"""
+import math
 
 
 class Poisson:
@@ -16,3 +17,10 @@ class Poisson:
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
             self.lambtha = float(sum(data)/len(data))
+
+    def pmf(self, k):
+        """Calculates the value of the PMF for a given number of successes"""
+        e = 2.7182818285
+        if type(k) is not int:
+            k = int(k)
+        return ((e**(-self.lambtha))*(self.lambtha**k))/math.factorial(k)
