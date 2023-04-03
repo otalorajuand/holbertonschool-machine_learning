@@ -34,5 +34,5 @@ class Normal:
         """Calculates the value of the PDF for a given x-value"""
         pi = 3.1415926536
         e = 2.7182818285
-        constant = 1 / (self.stddev * math.sqrt(2 * pi))
+        constant = 1 / (self.stddev * (2 * pi) ** 0.5)
         return constant * (e ** (-0.5*((x - self.mean)/self.stddev) ** 2)) 
