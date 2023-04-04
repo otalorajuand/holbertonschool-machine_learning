@@ -50,6 +50,3 @@ class Binomial:
             return 0
 
         return sum([self.pmf(x) for x in range(k + 1)])
-
-
-
