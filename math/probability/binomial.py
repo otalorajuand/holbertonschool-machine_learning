@@ -21,6 +21,6 @@ class Binomial:
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
             x_bar = sum(data) / len(data)
-            s2 = sum((x - x_bar)**2 for x in data) / (len(data) - 1)
+            s2 = sum((x - x_bar)**2 for x in data) / (len(data))
             self.n = round((x_bar ** 2) / (x_bar - s2))
             self.p = x_bar / self.n
