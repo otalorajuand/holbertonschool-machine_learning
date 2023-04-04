@@ -40,3 +40,16 @@ class Binomial:
             return fact
         combinatoric = (fact(self.n)) / (fact(k) * fact(self.n - k))
         return combinatoric * (self.p ** k) * ((1 - self.p) ** (self.n - k))
+
+    def cdf(self, k):
+        """Calculates the value of the CDF for a given number of successes"""
+        if not isinstance(k, int):
+            k = int(k)
+
+        if k < 0:
+            return 0
+
+        return sum([self.pmf(x) for x in range(k + 1)])
+
+
+
