@@ -24,3 +24,19 @@ class Binomial:
             s2 = sum((x - x_bar)**2 for x in data) / (len(data))
             self.n = round((x_bar ** 2) / (x_bar - s2))
             self.p = x_bar / self.n
+
+    def pmf(self, k):
+        """Calculates the value of the PMF for a given number of successes"""
+        if not isinstance(k, int):
+            k = int(k)
+
+        if k < 0:
+            return 0
+
+        def fact(x):
+            fact = 1
+            for i in range(1, x + 1):
+                fact = fact * i
+            return fact
+        combinatoric = (fact(self.n)) / (fact(k) * fact(self.n - k))
+        return combinatoric * (self.p ** k) * ((1 - self.p) ** (self.n - k))
