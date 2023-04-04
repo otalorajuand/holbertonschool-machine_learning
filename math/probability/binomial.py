@@ -4,6 +4,7 @@
 
 class Binomial:
     """This class represents a binomial distribution"""
+
     def __init__(self, data=None, n=1, p=0.5):
         if data is None:
             if n < 0:
@@ -15,14 +16,11 @@ class Binomial:
             else:
                 self.p = float(p)
         else:
-            if type(data) is not list:
+            if not isinstance(data, list):
                 raise TypeError("data must be a list")
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
             x_bar = sum(data) / len(data)
-            s2 = sum((x-x_bar)**2 for x in data) / (len(data) - 1)
-            self.n = (x_bar ** 2) / (x_bar - s2)
-            self.p = (x_bar - s2) / x_bar
-            
-
-
+            s2 = sum((x - x_bar)**2 for x in data) / (len(data) - 1)
+            self.n = round((x_bar ** 2) / (x_bar - s2))
+            self.p = x_bar / self.n
