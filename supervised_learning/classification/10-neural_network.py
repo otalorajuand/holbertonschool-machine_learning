@@ -56,6 +56,5 @@ class NeuralNetwork:
         self.__A1 = 1 / (1 + np.exp(-Z1))
 
         Z2 = np.dot(self.W2, self.A1) + self.b2
-        self.__A2 = 1 / (1 + np.exp(-Z2)
+        self.__A2 = 1 / (1 + np.exp(-Z2))
         return self.__A1, self.__A2
-
