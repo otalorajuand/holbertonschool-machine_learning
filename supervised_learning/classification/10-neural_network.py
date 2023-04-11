@@ -51,7 +51,8 @@ class NeuralNetwork:
         return self.__A2
 
     def forward_prop(self, X):
-        """This function Calculates the forward propagation of the neural network"""
+        """This function Calculates the forward propagation
+        of the neural network"""
         Z1 = np.dot(self.W1, X) + self.b1
         self.__A1 = 1 / (1 + np.exp(-Z1))
 
