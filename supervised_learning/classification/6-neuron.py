@@ -5,8 +5,9 @@ import numpy as np
 
 class Neuron:
     """This class defines a Neuron"""
+
     def __init__(self, nx):
-        if type(nx) is not int:
+        if not isinstance(nx, int):
             raise TypeError("nx must be an integer")
         if nx < 1:
             raise ValueError("nx must be a positive integer")
@@ -30,7 +31,7 @@ class Neuron:
     def forward_prop(self, X):
         """This function Calculates the forward propagation of the neuron"""
         Z = np.dot(self.W, X) + self.b
-        self.__A = 1/(1 + np.exp(-Z))
+        self.__A = 1 / (1 + np.exp(-Z))
         return self.__A
 
     def cost(self, Y, A):
@@ -48,25 +49,25 @@ class Neuron:
         """Calculates one pass of gradient descent on the neuron"""
         DZ = A - Y
         m = X.shape[1]
-        DW = (1/m)*np.dot(DZ, X.T)
-        DB = (1/m)*np.sum(DZ)
-        self.__W = self.__W - alpha*DW
-        self.__b = self.__b - alpha*DB
+        DW = (1 / m) * np.dot(DZ, X.T)
+        DB = (1 / m) * np.sum(DZ)
+        self.__W = self.__W - alpha * DW
+        self.__b = self.__b - alpha * DB
 
     def train(self, X, Y, iterations=5000, alpha=0.05):
         """Trains the neuron"""
-        if type(iterations) is not int:
+        if not isinstance(iterations, int):
             raise TypeError('iterations must be an integer')
         if iterations <= 0:
             raise ValueError('iterations must be a positive integer')
-        
-        if type(alpha) is not float:
+
+        if not isinstance(alpha, float):
             raise TypeError('alpha must be a float')
         if alpha <= 0:
             raise ValueError('alpha must be positive')
 
         for i in range(iterations):
-            self.gradient_descent(X, Y, self.A, alpha)
             self.forward_prop(X)
+            self.gradient_descent(X, Y, self.A, alpha)
 
         return self.evaluate(X, Y)
