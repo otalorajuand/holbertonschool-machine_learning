@@ -25,3 +25,30 @@ class NeuralNetwork:
         self.__W2 = np.random.normal(0, 1, size=(1, nodes))
         self.__b2 = 0
         self.__A2 = 0
+
+        @property
+        def W1(self):
+            return self.__W
+
+        @property
+        def b1(self):
+            return self.__W
+
+        @property
+        def A1(self):
+            return self.__W
+
+        @property
+        def W2(self):
+            return self.__W
+
+        @property
+        def b2(self):
+            return self.__W
+
+        @property
+        def A2(self):
+            return self.__W
+
+
+
