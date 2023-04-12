@@ -65,4 +65,3 @@ class NeuralNetwork:
         loss = Y * np.log(A) + (1 - Y) * np.log(1.0000001 - A)
         cost = -(np.sum(loss) / loss.shape[1])
         return cost
-
