@@ -79,13 +79,12 @@ class NeuralNetwork:
         DW2 = (1 / m) * np.dot(DZ2, A1.T)
         DB2 = (1 / m) * np.sum(DZ2, axis=1, keepdims=True)
 
-        self.__W2 = self.__W2 - alpha * DW2
-        self.__b2 = self.__b2 - alpha * DB2
-
         DZ1 = np.dot(self.__W2.T, DZ2) * (A1 * (1 - A1)) 
         DW1 = (1 / m) * np.dot(DZ1, X.T)
         DB1 = (1 / m) * np.sum(DZ1, axis=1, keepdims=True)
 
+        self.__W2 = self.__W2 - alpha * DW2
+        self.__b2 = self.__b2 - alpha * DB2
+
         self.__W1 = self.__W1 - alpha * DW1
         self.__b1 = self.__b1 - alpha * DB1
-
