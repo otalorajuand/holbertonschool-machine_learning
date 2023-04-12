@@ -71,7 +71,6 @@ class NeuralNetwork:
         A = np.where(self.forward_prop(X)[1] < 0.5, 0, 1)
         return A, self.cost(Y, self.forward_prop(X)[1])
 
-
     def gradient_descent(self, X, Y, A1, A2, alpha=0.05):
         """Calculates one pass of gradient descent on the neural network"""
         DZ2 = A2 - Y
@@ -79,7 +78,7 @@ class NeuralNetwork:
         DW2 = (1 / m) * np.dot(DZ2, A1.T)
         DB2 = (1 / m) * np.sum(DZ2, axis=1, keepdims=True)
 
-        DZ1 = np.dot(self.__W2.T, DZ2) * (A1 * (1 - A1)) 
+        DZ1 = np.dot(self.__W2.T, DZ2) * (A1 * (1 - A1))
         DW1 = (1 / m) * np.dot(DZ1, X.T)
         DB1 = (1 / m) * np.sum(DZ1, axis=1, keepdims=True)
 
