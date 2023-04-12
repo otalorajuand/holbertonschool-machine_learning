@@ -21,18 +21,6 @@ class DeepNeuralNetwork:
         self.__cache = {}
         self.__weights = {}
 
-        @property
-        def L(self):
-            return self.__L
-
-        @property
-        def cache(self):
-            return self.__cache
-
-        @property
-        def weights(self):
-            return self.__weights
-
         for i in range(len(layers)):
             if i == 0:
                 self.__weights['W1'] = np.random.randn(
@@ -41,3 +29,17 @@ class DeepNeuralNetwork:
                 self.__weights["W" + str(i + 1)] = np.random.randn(
                     layers[i], layers[i - 1]) * np.sqrt(2 / layers[i - 1])
             self.__weights["b" + str(i + 1)] = np.zeros((layers[i], 1))
+
+    @property
+    def L(self):
+        return self.__L
+
+    @property
+    def cache(self):
+        return self.__cache
+
+    @property
+    def weights(self):
+        return self.__weights
+
+
