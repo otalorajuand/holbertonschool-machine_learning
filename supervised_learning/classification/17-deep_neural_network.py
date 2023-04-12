@@ -41,5 +41,3 @@ class DeepNeuralNetwork:
     @property
     def weights(self):
         return self.__weights
-
-
