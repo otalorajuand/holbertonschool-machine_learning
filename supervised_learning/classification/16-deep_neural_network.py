@@ -21,10 +21,11 @@ class DeepNeuralNetwork:
         self.cache = {}
         self.weights = {}
 
-        for i, l in enumerate(layers):
+        for i in range(len(layers)):
             if i == 0:
-                self.weights['W1'] = np.random.normal(0, 1, size=(l, nx))
+                self.weights['W1'] = np.random.normal(
+                    0, 1, size=(layers[i], nx))
             else:
                 self.weights[f'W{i+1}'] = np.random.normal(
-                    0, 1, size=(l, layers[i - 1]))
-            self.weights[f'b{i+1}'] = np.zeros((l, 1))
+                    0, 1, size=(layers[i], layers[i - 1]))
+            self.weights[f'b{i+1}'] = np.zeros((layers[i], 1))
