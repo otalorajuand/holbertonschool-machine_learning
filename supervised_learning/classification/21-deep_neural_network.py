@@ -73,22 +73,21 @@ class DeepNeuralNetwork:
     def gradient_descent(self, Y, cache, alpha=0.05):
         """Calculates one pass of gradient descent on the neural network"""
         deltas = {}
+        weights = self.__weights.copy()
         nl = self.L
         deltas['DZ' + str(nl)] = cache['A' + str(nl)] - Y
-        m = cache['A0'].shape[1]
-        deltas['DW' + str(nl)] = (1 / m) * \
-            np.dot(deltas['DZ' + str(nl)], cache['A' + str(nl - 1)].T)
-        deltas['DB' + str(nl)] = (1 / m) * \
-            np.sum(deltas['DZ' + str(nl)], axis=1, keepdims=True)
+        m = Y.shape[1]
+        DW = (1 / m) * np.dot(deltas['DZ'+str(nl)], cache['A'+str(nl - 1)].T)
+        DB = (1 / m) * np.sum(deltas['DZ' + str(nl)], axis=1, keepdims=True)
 
         W = 'W' + str(nl)
         B = 'b' + str(nl)
-        self.weights[W] = self.weights[W] - alpha * deltas['DW' + str(nl)]
-        self.weights[B] = self.weights[B] - alpha * deltas['DB' + str(nl)]
+        self.__weights[W] = weights[W] - alpha * DW
+        self.__weights[B] = weights[B] - alpha * DB
 
         for i in reversed(range(1, nl)):
 
-            W = self.weights['W' + str(i + 1)]
+            W = weights['W' + str(i + 1)]
             DZ = deltas['DZ' + str(i + 1)]
 
             A = cache['A' + str(i)]
@@ -101,5 +100,5 @@ class DeepNeuralNetwork:
 
             W = 'W' + str(i)
             B = 'b' + str(i)
-            self.weights[W] = self.weights[W] - (alpha * DW).T
-            self.weights[B] = self.weights[B] - alpha * DB
+            self.__weights[W] = weights[W] - (alpha * DW).T
+            self.__weights[B] = weights[B] - alpha * DB
