@@ -10,6 +10,6 @@ def one_hot_encode(Y, classes):
             classes, int) or max(Y) < classes:
         return None
 
-    b = np.zeros((Y.size, Y.max() + 1))
+    b = np.zeros((Y.size, classes))
     b[np.arange(Y.size), Y] = 1
     return b.T
