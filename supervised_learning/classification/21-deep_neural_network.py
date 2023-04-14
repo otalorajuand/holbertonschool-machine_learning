@@ -72,7 +72,6 @@ class DeepNeuralNetwork:
 
     def gradient_descent(self, Y, cache, alpha=0.05):
         """Calculates one pass of gradient descent on the neural network"""
-
         deltas = {}
         nl = self.L
         deltas['DZ' + str(nl)] = cache['A' + str(nl)] - Y
@@ -82,25 +81,25 @@ class DeepNeuralNetwork:
         deltas['DB' + str(nl)] = (1 / m) * \
             np.sum(deltas['DZ' + str(nl)], axis=1, keepdims=True)
 
+        W = 'W' + str(nl)
+        B = 'b' + str(nl)
+        self.weights[W] = self.weights[W] - alpha * deltas['DW' + str(nl)]
+        self.weights[B] = self.weights[B] - alpha * deltas['DB' + str(nl)]
+
         for i in reversed(range(1, nl)):
+
             W = self.weights['W' + str(i + 1)]
             DZ = deltas['DZ' + str(i + 1)]
 
             A = cache['A' + str(i)]
             A_1 = cache['A' + str(i - 1)]
 
-            deltas['DZ' + str(i)] = np.dot(W.T, DZ) * (A * (1 - A))
+            deltas['DZ' + str(i)] = np.matmul(W.T, DZ) * (A * (1 - A))
             DZ_1 = deltas['DZ' + str(i)]
-            deltas['DW' + str(i)] = (1 / m) * np.dot(DZ_1, A_1.T)
-            deltas['DB' + str(i)] = (1 / m) * \
-                np.sum(deltas['DW' + str(i)], axis=1, keepdims=True)
+            DW = (1 / m) * np.matmul(A_1, DZ_1.T)
+            DB = (1 / m) * np.sum(DZ_1, axis=1, keepdims=True)
 
-            W = 'W' + str(i + 1)
-            DW = 'DW' + str(i + 1)
-            B = 'b' + str(i + 1)
-            DB = 'DB' + str(i + 1)
-            self.weights[W] = self.weights[W] - alpha * deltas[DW]
-            self.weights[B] = self.weights[B] - alpha * deltas[DB]
-
-        self.weights['W1'] = self.weights['W1'] - alpha * deltas['DW1']
-        self.weights['b1'] = self.weights['b1'] - alpha * deltas['DB1']
+            W = 'W' + str(i)
+            B = 'b' + str(i)
+            self.weights[W] = self.weights[W] - (alpha * DW).T
+            self.weights[B] = self.weights[B] - alpha * DB
