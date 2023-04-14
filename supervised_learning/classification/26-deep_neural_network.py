@@ -138,11 +138,11 @@ class DeepNeuralNetwork:
             self.gradient_descent(Y, self.cache, alpha)
             A = self.cache['A' + str(self.L)]
 
-            if verbose and i % step == 0 or i in [0, iterations]:
+            if verbose and (i % step == 0 or i in [0, iterations]):
                 cost = self.cost(Y, A)
                 print('Cost after {} iterations: {}'.format(i, cost))
 
-            if graph and i % step == 0 or i in [0, iterations]:
+            if graph and (i % step == 0 or i in [0, iterations]):
                 costs.append(self.cost(Y, A))
 
         if graph:
