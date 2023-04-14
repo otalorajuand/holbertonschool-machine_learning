@@ -8,5 +8,4 @@ def one_hot_decode(one_hot):
     if not isinstance(one_hot, np.ndarray):
         return None
 
-
     return np.argmax(one_hot, axis=0)
