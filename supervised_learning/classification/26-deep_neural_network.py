@@ -162,6 +162,7 @@ class DeepNeuralNetwork:
 
         with open(filename, 'wb') as pickle_file:
             pickle.dump(self, pickle_file)
+            f.close()
 
     @staticmethod
     def load(filename):
