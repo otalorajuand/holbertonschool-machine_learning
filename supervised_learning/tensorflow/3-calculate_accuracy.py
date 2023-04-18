@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """This module contains the function calculate_accuracy"""
+import tensorflow as tf
 
 
 def calculate_accuracy(y, y_pred):
