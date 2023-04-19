@@ -18,4 +18,4 @@ def evaluate(X, Y, save_path):
         accuracy = sess.run(accuracy, feed_dict={x: X, y: Y})
         loss = sess.run(loss, feed_dict={x: X, y: Y})
 
-        return y_pred, loss, accuracy
+    return prediction, accuracy, loss
