@@ -41,7 +41,7 @@ def train(
             accuracy_valid = sess.run(accuracy,
                                       feed_dict={x: X_valid, y: Y_valid})
 
-            if (i % 100) == 0:
+            if (i % 100) is 0:
                 print('After {} iterations:'.format(i))
                 print("\tTraining Cost: {}".format(loss_train))
                 print("\tTraining Accuracy: {}".format(accuracy_train))
