@@ -4,17 +4,29 @@ import tensorflow as tf
 
 
 def create_batch_norm_layer(prev, n, activation):
-    """creates a batch normalization layer for a neural network
-    in tensorflow"""
-    weights_initializer = tf.contrib.layers.variance_scaling_initializer(
-        mode="FAN_AVG")
-    layer = tf.layers.Dense(units=n,
-                            activation=activation,
-                            kernel_initializer=weights_initialiazer)
-    x = layer[prev]
-    gamma = tf.Variable(tf.constant(
-        1, shape=(1, n), trainable=True, name="gamma"))
-    beta = tf.Variable(tf.constant(
-        0, shape=(1, n), trainable=True, name="gamma"))
-    Z = tf.nn.batch_normalization(x, mean, variance, beta, gamma, 1e-8)
-    return Z
+    """
+    Function that normalized a batch in a DNN with Tf
+    Args:
+        prev: the activated output of the previous layer
+        n: number of nodes in the layer to be created
+        activation: activation function that should be used
+                    on the output of the layer
+    Returns: tensor of the activated output for the layer
+    """
+    init = tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG")
+    x = tf.layers.Dense(units=n, activation=None, kernel_initializer=init)
+    x_prev = x(prev)
+    scale = tf.Variable(tf.constant(1.0, shape=[n]), name='gamma')
+    mean, variance = tf.nn.moments(x_prev, axes=[0])
+    offset = tf.Variable(tf.constant(0.0, shape=[n]), name='beta')
+    variance_epsilon = 1e-8
+
+    normalization = tf.nn.batch_normalization(
+        x_prev,
+        mean,
+        variance,
+        offset,
+        scale,
+        variance_epsilon,
+    )
+    return activation(normalization)
