@@ -104,4 +104,4 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
                         feed_dict={x: X_train_s[low:high, :],
                                    y: Y_train_s[low:high, :]})
                     print("\t\tAccuracy: {}".format(step_accuracy))
-        return (saver.save(sess, save_path)) 
+        return (saver.save(sess, save_path))
