@@ -8,8 +8,7 @@ def moving_average(data, beta):
     res = []
 
     for i, elem in enumerate(data):
-        vt = beta*vt + (1-beta)*elem
-        res.append(vt/(1-(beta**(i+1))))
+        vt = beta * vt + (1 - beta) * elem
+        res.append(vt / (1 - (beta**(i + 1))))
 
     return res
-
