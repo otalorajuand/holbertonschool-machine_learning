@@ -9,5 +9,5 @@ def batch_norm(Z, gamma, beta, epsilon):
     miu = np.mean(Z, axis=0)
     G2 = np.std(Z, axis=0) ** 2
 
-    Z_norm = (Z - miu)/((G2 + epsilon)**0.5)
-    return gamma * Z_norm  + beta
+    Z_norm = (Z - miu) / ((G2 + epsilon)**0.5)
+    return gamma * Z_norm + beta
