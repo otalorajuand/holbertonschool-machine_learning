@@ -23,7 +23,7 @@ if __name__ == '__main__':
         saver.restore(sess, './graph.ckpt')
         x = tf.get_collection('x')[0]
         y = tf.get_collection('y')[0]
-        y_pred = t.get_collection('y_pred')[0]
+        y_pred = tf.get_collection('y_pred')[0]
         loss = tf.get_collection('loss')[0]
         train_op = create_momentum_op(loss, 0.01, 0.9)
         init = tf.global_variables_initializer()
