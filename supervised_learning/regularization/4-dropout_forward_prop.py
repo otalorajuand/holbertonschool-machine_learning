@@ -24,11 +24,9 @@ def dropout_forward_prop(X, weights, L, keep_prob):
         A = cache['A' + str(i)]
         B = weights['b' + str(i + 1)]
 
-        D = np.where(np.random.rand(A.shape[0], A.shape[1]) < keep_prob, 1, 0)
+        Z = np.dot(W, A) + B
 
-        A_drop = np.multiply(A, D)
-
-        Z = np.dot(W, A_drop) + B
+        D = np.where(np.random.rand(Z.shape[0], Z.shape[1]) < keep_prob, 1, 0)
 
         if i == L - 1:
             soft_max = np.exp(Z)
@@ -36,7 +34,7 @@ def dropout_forward_prop(X, weights, L, keep_prob):
                                                          keepdims=True))
         else:
             tanh = np.tanh(Z)
-            cache['A' + str(i + 1)] = tanh / keep_prob
+            cache['A' + str(i + 1)] = (tanh / keep_prob) * D
         cache['D' + str(i + 1)] = D
 
     return cache
