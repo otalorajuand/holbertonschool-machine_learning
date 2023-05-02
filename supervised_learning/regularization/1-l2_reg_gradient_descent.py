@@ -21,6 +21,7 @@ def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
 
     deltas = {}
     nl = L
+    weights_copy = weights.copy()
     deltas['DZ' + str(nl)] = cache['A' + str(nl)] - Y
     m = Y.shape[1]
     DW = (1 / m) * np.dot(deltas['DZ' + str(nl)],
@@ -29,12 +30,12 @@ def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
 
     W = 'W' + str(nl)
     B = 'b' + str(nl)
-    weights[W] = weights[W] - alpha * DW
-    weights[B] = weights[B] - alpha * DB
+    weights[W] = weights_copy[W] - alpha * DW
+    weights[B] = weights_copy[B] - alpha * DB
 
     for i in reversed(range(1, nl)):
 
-        W = weights['W' + str(i + 1)]
+        W = weights_copy['W' + str(i + 1)]
         DZ = deltas['DZ' + str(i + 1)]
 
         A = cache['A' + str(i)]
@@ -43,10 +44,10 @@ def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
         deltas['DZ' + str(i)] = np.matmul(W.T, DZ) * (A * (1 - A))
         DZ_1 = deltas['DZ' + str(i)]
         DW = ((1 / m) * np.matmul(A_1, DZ_1.T)) + \
-            (lambtha / Y.shape[1]) * weights['W' + str(i)].T
+            (lambtha / m) * weights_copy['W' + str(i)].T
         DB = (1 / m) * np.sum(DZ_1, axis=1, keepdims=True)
 
         W = 'W' + str(i)
         B = 'b' + str(i)
-        weights[W] = weights[W] - (alpha * DW).T
-        weights[B] = weights[B] - alpha * DB
+        weights[W] = weights_copy[W] - (alpha * DW).T
+        weights[B] = weights_copy[B] - alpha * DB
