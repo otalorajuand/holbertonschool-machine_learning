@@ -25,7 +25,7 @@ def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
     deltas['DZ' + str(nl)] = cache['A' + str(nl)] - Y
     m = Y.shape[1]
     DW = (1 / m) * np.dot(deltas['DZ' + str(nl)], cache['A' +
-                                                        str(nl - 1)].T) + (lambtha / m) * weights_copy['W' + str(nl)].T
+                                                        str(nl - 1)].T) + (lambtha / m) * weights_copy['W' + str(nl)]
     DB = (1 / m) * np.sum(deltas['DZ' + str(nl)], axis=1, keepdims=True)
 
     W = 'W' + str(nl)
