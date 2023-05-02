@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """This module includes the function dropout_create_layer"""
+import tensorflow as tf
 
 
 def dropout_create_layer(prev, n, activation, keep_prob):
