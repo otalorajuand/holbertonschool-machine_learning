@@ -33,13 +33,13 @@ At the end of this project I was able to solve these conceptual questions:
 
 | Filename |
 | ------ |
-| [0-create_confusion.py](https://github.com/edward0rtiz/holbertonschool-machine_learning/blob/master/supervised_learning/0x04-error_analysis/0-create_confusion.py)|
-| [1-sensitivity.py](https://github.com/edward0rtiz/holbertonschool-machine_learning/blob/master/supervised_learning/0x04-error_analysis/1-sensitivity.py)|
-| [2-precision.py](https://github.com/edward0rtiz/holbertonschool-machine_learning/blob/master/supervised_learning/0x04-error_analysis/2-precision.py)|
-| [3-specificity.py](https://github.com/edward0rtiz/holbertonschool-machine_learning/blob/master/supervised_learning/0x04-error_analysis/3-specificity.py)|
-| [4-f1_score.py](https://github.com/edward0rtiz/holbertonschool-machine_learning/blob/master/supervised_learning/0x04-error_analysis/4-f1_score.py)|
-| [5-error_handling](https://github.com/edward0rtiz/holbertonschool-machine_learning/blob/master/supervised_learning/0x04-error_analysis/5-error_handling)|
-| [6-compare_and_contrast](https://github.com/edward0rtiz/holbertonschool-machine_learning/blob/master/supervised_learning/0x04-error_analysis/6-compare_and_contrast)|
+| [0-create_confusion.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/0-create_confusion.py)|
+| [1-sensitivity.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/1-sensitivity.py)|
+| [2-precision.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/2-precision.py)|
+| [3-specificity.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/3-specificity.py)|
+| [4-f1_score.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/4-f1_score.py)|
+| [5-error_handling](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/5-error_handling)|
+| [6-compare_and_contrast](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/6-compare_and_contrast)|
 
 
 ### Try It On Your Machine :computer:
