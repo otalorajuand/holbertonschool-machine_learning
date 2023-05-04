@@ -42,41 +42,9 @@ At the end of this project I was able to solve these conceptual questions:
 | [6-compare_and_contrast](https://github.com/edward0rtiz/holbertonschool-machine_learning/blob/master/supervised_learning/0x04-error_analysis/6-compare_and_contrast)|
 
 
-
-## Additional info :construction:
-### Resources
-
-- Python 3.5 / 3.8
-- Pycharm Professional 2020.1
-- absl-py 0.9.0
-- astor 0.8.1
-- cycler 0.10.0
-- gast 0.3.3
-- grpcio 1.29.0
-- h5py 2.10.0
-- importlib-metadata 1.6.0
-- Keras-Applications 1.0.8
-- Keras-Preprocessing 1.1.2
-- kiwisolver 1.1.0
-- Markdown 3.2.2
-- matplotlib 3.0.3
-- numpy 1.18.4
-- Pillow 7.1.2
-- protobuf 3.11.3
-- pycodestyle 2.5.0
-- pyparsing 2.4.7
-- python-dateutil 2.8.1
-- scipy 1.4.1
-- six 1.14.0
-- tensorboard 1.12.2
-- termcolor 1.1.0
-- Werkzeug 1.0.1
-- zipp 1.2.0
-
-
 ### Try It On Your Machine :computer:
 ```bash
-git clone https://github.com/edward0rtiz/holbertonschool-machine_learning.git
-cd 0x04-error_analysis
+git clone https://github.com/otalorajuand/holbertonschool-machine_learning.git
+cd error_analysis
 ./main_files/MAINFILE.py
 ```
