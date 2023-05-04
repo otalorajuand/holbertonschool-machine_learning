@@ -46,24 +46,24 @@ At the end of this project I was able to solve these conceptual questions:
 
 ## Results :chart_with_upwards_trend:
 
-| Filename |
+| Filename | Task |
 | ------ |
-| [0-norm_constants.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/0-norm_constants.py)|
-| [1-normalize.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/1-normalize.py)|
-| [2-shuffle_data.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/2-shuffle_data.py)|
-| [3-mini_batch.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/3-mini_batch.py)|
-| [4-moving_average.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/4-moving_average.py)|
-| [5-momentum.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/5-momentum.py)|
-| [6-momentum.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/6-momentum.py)|
-| [7-RMSProp.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/7-RMSProp.py)|
-| [8-RMSProp.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/8-RMSProp.py)|
-| [9-Adam.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/9-Adam.py)|
-| [10-Adam.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/10-Adam.py)|
-| [11-learning_rate_decay.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/11-learning_rate_decay.py)|
-| [12-learning_rate_decay.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/12-learning_rate_decay.py)|
-| [13-batch_norm.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/13-batch_norm.py)|
-| [14-batch_norm.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/14-batch_norm.py)|
-| [15-model.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/15-model.py)|
+| [0-norm_constants.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/0-norm_constants.py)| Write the function that calculates the normalization (standardization) constants of a matrix.| 
+| [1-normalize.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/1-normalize.py)| Write the function that normalizes (standardizes) a matrix.|
+| [2-shuffle_data.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/2-shuffle_data.py)| Write the function that shuffles the data points in two matrices the same way.|
+| [3-mini_batch.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/3-mini_batch.py)| Write the function that trains a loaded neural network model using mini-batch gradient descent.|
+| [4-moving_average.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/4-moving_average.py)| Write the function that calculates the weighted moving average of a data set.|
+| [5-momentum.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/5-momentum.py)| Write the function that updates a variable using the gradient descent with momentum optimization algorithm.|
+| [6-momentum.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/6-momentum.py)| Write the function that creates the training operation for a neural network in tensorflow using the gradient descent with momentum optimization algorithm.|
+| [7-RMSProp.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/7-RMSProp.py)| Write the function that updates a variable using the RMSProp optimization algorithm.|
+| [8-RMSProp.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/8-RMSProp.py)| Write the function that creates the training operation for a neural network in tensorflow using the RMSProp optimization algorithm.|
+| [9-Adam.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/9-Adam.py)| Write the function that updates a variable in place using the Adam optimization algorithm.|
+| [10-Adam.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/10-Adam.py)| Write the function that creates the training operation for a neural network in tensorflow using the Adam optimization algorithm.|
+| [11-learning_rate_decay.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/11-learning_rate_decay.py)| Write the function that updates the learning rate using inverse time decay in numpy.|
+| [12-learning_rate_decay.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/12-learning_rate_decay.py)| Write the function that creates a learning rate decay operation in tensorflow using inverse time decay.|
+| [13-batch_norm.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/13-batch_norm.py)| Write the function that normalizes an unactivated output of a neural network using batch normalization.|
+| [14-batch_norm.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/14-batch_norm.py)| Write the function that creates a batch normalization layer for a neural network in tensorflow.|
+| [15-model.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/15-model.py)| Write the function that builds, trains, and saves a neural network model in tensorflow using Adam optimization, mini-batch gradient descent, learning rate decay, and batch normalization.|
 
 
 ### Try It On Your Machine :computer:
