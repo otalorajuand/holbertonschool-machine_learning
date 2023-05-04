@@ -1,6 +1,6 @@
 # Optimization
 
-> Error Analysis refers to the process of examining dev set examples that your algorithm misclassified, so that we can understand the underlying causes of the errors. This can help us prioritize on which problem deserves attention and how much. It gives us a direction for handling the errors.
+> Optimization is the process which allow us to update the parameters of the model in order to reduce an error metric. The most used methodology to update the parameters of a neural network is called gradient descente. In this project we explore the improvements of this classic algorithm to make it faster and more efficient.
 
 At the end of this project I was able to solve these conceptual questions:
 
@@ -48,13 +48,22 @@ At the end of this project I was able to solve these conceptual questions:
 
 | Filename |
 | ------ |
-| [0-create_confusion.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/0-create_confusion.py)|
-| [1-sensitivity.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/1-sensitivity.py)|
-| [2-precision.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/2-precision.py)|
-| [3-specificity.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/3-specificity.py)|
-| [4-f1_score.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/4-f1_score.py)|
-| [5-error_handling](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/5-error_handling)|
-| [6-compare_and_contrast](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/error_analysis/6-compare_and_contrast)|
+| [0-norm_constants.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/0-norm_constants.py)|
+| [1-normalize.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/1-normalize.py)|
+| [2-shuffle_data.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/2-shuffle_data.py)|
+| [3-mini_batch.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/3-mini_batch.py)|
+| [4-moving_average.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/4-moving_average.py)|
+| [5-momentum.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/5-momentum.py)|
+| [6-momentum.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/6-momentum.py)|
+| [7-RMSProp.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/7-RMSProp.py)|
+| [8-RMSProp.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/8-RMSProp.py)|
+| [9-Adam.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/9-Adam.py)|
+| [10-Adam.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/10-Adam.py)|
+| [11-learning_rate_decay.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/11-learning_rate_decay.py)|
+| [12-learning_rate_decay.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/12-learning_rate_decay.py)|
+| [13-batch_norm.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/13-batch_norm.py)|
+| [14-batch_norm.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/14-batch_norm.py)|
+| [15-model.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/15-model.py)|
 
 
 ### Try It On Your Machine :computer:
