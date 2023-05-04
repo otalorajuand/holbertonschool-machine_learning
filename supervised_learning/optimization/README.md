@@ -47,7 +47,7 @@ At the end of this project I was able to solve these conceptual questions:
 ## Results :chart_with_upwards_trend:
 
 | Filename | Task |
-| ------ | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| ------ | ------------------------------------------------- | 
 | [0-norm_constants.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/0-norm_constants.py)| Write the function that calculates the normalization (standardization) constants of a matrix.| 
 | [1-normalize.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/1-normalize.py)| Write the function that normalizes (standardizes) a matrix.|
 | [2-shuffle_data.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/optimization/2-shuffle_data.py)| Write the function that shuffles the data points in two matrices the same way.|
