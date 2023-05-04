@@ -1,4 +1,4 @@
-# 0x04 Error Analysis :robot:
+# Error Analysis 
 
 > Error Analysis refers to the process of examining dev set examples that your algorithm misclassified, so that we can understand the underlying causes of the errors. This can help us prioritize on which problem deserves attention and how much. It gives us a direction for handling the errors.
 
