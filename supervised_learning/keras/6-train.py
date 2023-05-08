@@ -34,7 +34,7 @@ def train_model(
     """
     if early_stopping and validation_data:
         callback = K.callbacks.EarlyStopping(
-            monitor='val_loss', patience=patience)
+            monitor='val_loss', mode='min', patience=patience)
     else:
         callback = None
 
