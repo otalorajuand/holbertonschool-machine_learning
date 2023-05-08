@@ -24,8 +24,8 @@ def build_model(nx, layers, activations, lambtha, keep_prob):
                              kernel_regularizer='l2'))
     model.add(K.layers.Dropout(keep_prob, input_shape=(nx,)))
 
-    for i, lay in enumerate(layers[1:-1]):
-        model.add(K.layers.Dense(lay, activation=activations[i],
+    for lay, act in zip(layers[1:-1], activations[1:-1]):
+        model.add(K.layers.Dense(lay, activation=act,
                                  kernel_regularizer='l2'))
         model.add(K.layers.Dropout(keep_prob))
 
