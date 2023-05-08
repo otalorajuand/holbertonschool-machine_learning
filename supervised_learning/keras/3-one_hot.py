@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """This module contains the function one_hot"""
-import numpy as np
+import tensorflow.keras as K
 
 
 def one_hot(labels, classes=None):
@@ -13,7 +13,4 @@ def one_hot(labels, classes=None):
     Returns: the one-hot matrix
     """
 
-    classes = len(labels) if classes is None else classes
-    b = np.zeros((labels.size, classes))
-    b[np.arange(labels.size), labels] = 1
-    return b
+    return K.utils.to_categorical(labels, num_classes=classes)
