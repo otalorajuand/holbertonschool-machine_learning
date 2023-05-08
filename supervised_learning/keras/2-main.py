@@ -13,7 +13,6 @@ if __name__ == '__main__':
     print(model.metrics)
     opt = model.optimizer
     print(opt.__class__)
-    """
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
-        print(sess.run((opt.lr, opt.beta_1, opt.beta_2)))"""
+        print(sess.run((opt.lr, opt.beta_1, opt.beta_2)))
