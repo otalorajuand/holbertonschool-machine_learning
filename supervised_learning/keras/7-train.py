@@ -45,14 +45,13 @@ def train_model(
             monitor='val_loss', mode='min', patience=patience)
         callbacks.append(es)
 
+    def learning_rate_fn(epoch):
+        """The function that sets the learning rate for each epoch"""
+        return alpha / (1 + decay_rate * epoch)
+
     if learning_rate_decay and validation_data:
-        learning_rate_fn = K.optimizers.schedules.InverseTimeDecay(
-            initial_learning_rate=alpha,
-            decay_steps=1,
-            decay_rate=decay_rate,
-            staircase=True)
-        lrd = K.callbacks.LearningRateScheduler(learning_rate_fn, verbose=True)
-        callbacks.append(es)
+        lrd = K.callbacks.LearningRateScheduler(learning_rate_fn, verbose=1)
+        callbacks.append(lrd)
 
     history = network.fit(data,
                           labels,
