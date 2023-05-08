@@ -17,19 +17,18 @@ def build_model(nx, layers, activations, lambtha, keep_prob):
 
     Returns: the keras model
     """
-    K.regularizers.L2(l2=lambtha)
+    L2 = K.regularizers.l2(lambtha)
     model = K.Sequential()
     model.add(K.layers.Dense(layers[0], input_shape=(nx,),
                              activation=activations[0],
-                             kernel_regularizer='l2'))
-    model.add(K.layers.Dropout(keep_prob, input_shape=(nx,)))
+                             kernel_regularizer=L2,
+                             name='dense'))
 
-    for lay, act in zip(layers[1:-1], activations[1:-1]):
-        model.add(K.layers.Dense(lay, activation=act,
-                                 kernel_regularizer='l2'))
-        model.add(K.layers.Dropout(keep_prob))
-
-    model.add(K.layers.Dense(layers[-1], activation=activations[-1],
-                             kernel_regularizer='l2'))
+    for i in range(1, len(layers)):
+        model.add(K.layers.Dropout(1 - keep_prob))
+        model.add(K.layers.Dense(layers[i], 
+                                 activation=activations[i],
+                                 kernel_regularizer=L2,
+                                 name='dense_' + str(i)))
 
     return model
