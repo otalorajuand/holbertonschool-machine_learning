@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""This module contains the function convolve_grayscale_same"""
+"""This module contains the function convolve_grayscale_padding"""
 import numpy as np
 
 
