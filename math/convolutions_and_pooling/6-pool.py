@@ -29,6 +29,7 @@ def pool(images, kernel_shape, stride, mode='max'):
     m = images.shape[0]
     img_h = images.shape[1]
     img_w = images.shape[2]
+    c = images.shape[3]
 
     kernel_h = kernel_shape[0]
     kernel_w = kernel_shape[1]
@@ -39,7 +40,7 @@ def pool(images, kernel_shape, stride, mode='max'):
     output_h = int((img_h - kernel_h) / sh + 1)
     output_w = int((img_w - kernel_w) / sw + 1)
 
-    output_image = np.zeros((m, output_h, output_w))
+    output_image = np.zeros((m, output_h, output_w, c))
 
     image = np.arange(m)
 
@@ -48,14 +49,13 @@ def pool(images, kernel_shape, stride, mode='max'):
             if mode == 'max':
                 res = np.max(images[image,
                              (x * sh):(x * sh) + kernel_h,
-                             (y * sw):(y * sw) + kernel_w], axis=(0, 1)),
-                axis = (1, 2)
-            else:
+                             (y * sw):(y * sw) + kernel_w],
+                             axis=(1, 2))
+            elif mode == 'avg':
                 res = np.mean(images[image,
                                      (x * sh):(x * sh) + kernel_h,
                                      (y * sw):(y * sw) + kernel_w],
-                              axis=(0, 1)),
-                axis = (1, 2)
+                              axis=(1, 2))
 
             output_image[image, x, y] = res
 
