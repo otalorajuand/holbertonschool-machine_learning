@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """This module contains the functions save_weights and load_weights"""
+import tensorflow.keras as K
 
 
 def save_weights(network, filename, save_format='h5'):
