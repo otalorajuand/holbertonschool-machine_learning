@@ -20,11 +20,11 @@ At the end of this project I was able to solve these conceptual questions:
 | ------ | ------------------------------------------------- | 
 | [0-convolve_grayscale_valid.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/math/convolutions_and_pooling/0-convolve_grayscale_valid.py)| Write a function that performs a valid convolution on grayscale images. | 
 | [1-convolve_grayscale_same.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/math/convolutions_and_pooling/1-convolve_grayscale_same.py)| Write a function that performs a same convolution on grayscale images. | 
-| [2-convolve_grayscale_padding.py](2. https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/math/convolutions_and_pooling/2-convolve_grayscale_padding.py)| Write a function that performs a convolution on grayscale images with custom padding. | 
-| [3-convolve_grayscale.py](3. https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/math/convolutions_and_pooling/3-convolve_grayscale.py)| Write a function that performs a convolution on grayscale images. | 
-| [4-convolve_channels.py](4. https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/math/convolutions_and_pooling/4-convolve_channels.py)| Write a function that performs a convolution on images with channels. | 
-| [5-convolve.py](5. https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/math/convolutions_and_pooling/5-convolve.py)| Write a function that performs a convolution on images using multiple kernels. | 
-| [6-pool.py](6. https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/math/convolutions_and_pooling/6-pool.py)| Write a function that performs pooling on images. | 
+| [2-convolve_grayscale_padding.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/math/convolutions_and_pooling/2-convolve_grayscale_padding.py)| Write a function that performs a convolution on grayscale images with custom padding. | 
+| [3-convolve_grayscale.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/math/convolutions_and_pooling/3-convolve_grayscale.py)| Write a function that performs a convolution on grayscale images. | 
+| [4-convolve_channels.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/math/convolutions_and_pooling/4-convolve_channels.py)| Write a function that performs a convolution on images with channels. | 
+| [5-convolve.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/math/convolutions_and_pooling/5-convolve.py)| Write a function that performs a convolution on images using multiple kernels. | 
+| [6-pool.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/math/convolutions_and_pooling/6-pool.py)| Write a function that performs pooling on images. | 
 
 
 ### Try It On Your Machine :computer:
