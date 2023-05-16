@@ -20,13 +20,13 @@ def lenet5(x, y):
         - a tensor for the accuracy of the network
     """
 
-    x = tf.placeholder("float", [None, 28, 28, 1], name="x")
-    y = tf.placeholder("float", [None, 10], name="y")
+    # x = tf.placeholder("float", [None, 28, 28, 1], name="x")
+    # y = tf.placeholder("float", [None, 10], name="y")
 
     weights_initializer = tf.contrib.layers.variance_scaling_initializer()
     C1 = tf.layers.Conv2D(
         filters=6,
-        kernel_size=(5,5),
+        kernel_size=(5, 5),
         padding='same',
         activation=tf.nn.relu,
         kernel_initializer=weights_initializer)
