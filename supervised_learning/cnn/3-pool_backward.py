@@ -18,7 +18,7 @@ def pool_backward(dA, A_prev, kernel_shape, stride=(1, 1), mode='max'):
         - mode is a string containing either max or avg, indicating whether
           to perform maximum or average pooling, respectively
 
-    Returns: the partial derivatives with respect to the previous layer
+    Returns: the partial derivatives with respect to the previous layer 
     (dA_prev)
     """
     m, h_new, w_new, c_new = dA.shape
@@ -30,15 +30,16 @@ def pool_backward(dA, A_prev, kernel_shape, stride=(1, 1), mode='max'):
 
     for x in range(h_new):
         for y in range(w_new):
-            for c in range(c_new):
+            for c in range(c):
                 for example in range(m):
                     if mode == 'max':
-                        a_prev_slice = A_prev[example, x: x + kh, y: y + kw, c]
-                        mask = (a_prev_slice == np.max(a_prev_slice))
-                        res = mask * dA[example, x, y, c]
+                        a_prev_slice = A_prev[example, x: x + kh, y: y+kw, c]
+                        mask = (a_prev_slice==np.max(a_prev_slice))
+                        res = mask*dA[example, x, y, c]
                     elif mode == 'avg':
-                        res = dA[example, x, y, c] / (kh * kw)
+                        res = dA[example, x, y, c]/(kh*kw)
 
-                    dA_prev[example, x: x + kh, y: y + kw, c] += res
+                    dA_prev[example, x: x + kh, y: y+kw, c] += res
 
     return dA_prev
+
