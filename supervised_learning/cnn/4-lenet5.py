@@ -20,9 +20,6 @@ def lenet5(x, y):
         - a tensor for the accuracy of the network
     """
 
-    # x = tf.placeholder("float", [None, 28, 28, 1], name="x")
-    # y = tf.placeholder("float", [None, 10], name="y")
-
     weights_initializer = tf.contrib.layers.variance_scaling_initializer()
     C1 = tf.layers.Conv2D(
         filters=6,
@@ -48,17 +45,17 @@ def lenet5(x, y):
 
     output_42 = tf.layers.Flatten()(output_4)
 
-    FC3 = tf.layers.dense(activation=tf.nn.relu,
+    FC3 = tf.layers.Dense(activation=tf.nn.relu,
                           units=120,
                           kernel_initializer=weights_initializer)
     output_5 = FC3(output_42)
 
-    FC4 = tf.layers.dense(activation=tf.nn.relu,
+    FC4 = tf.layers.Dense(activation=tf.nn.relu,
                           units=84,
                           kernel_initializer=weights_initializer)
     output_6 = FC4(output_5)
 
-    FC5 = tf.layers.dense(units=10,
+    FC5 = tf.layers.Dense(units=10,
                           kernel_initializer=weights_initializer)
     output_7 = FC5(output_6)
 
