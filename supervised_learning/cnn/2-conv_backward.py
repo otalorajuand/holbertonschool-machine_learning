@@ -31,8 +31,8 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
     pad_h, pad_w = 0, 0
 
     if padding == 'same':
-        pad_h = ((((h_prev - 1) * sh) + kh - h_prev) // 2)
-        pad_w = ((((w_prev - 1) * sw) + kw - w_prev) // 2)
+        pad_h = ((((h_prev - 1) * sh) + kh - h_prev) // 2) + 1
+        pad_w = ((((w_prev - 1) * sw) + kw - w_prev) // 2) + 1
 
     dA_prev = np.zeros((m, h_prev + (2 * pad_h), w_prev + (2 * pad_w), c_prev))
     dW = np.zeros((kh, kw, c_prev, c_new))
@@ -46,18 +46,16 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
         for y in range(w_new):
             for k in range(c_new):
                 for example in range(m):
-                    dA_prev[example,
-                            (x * sh):(x * sh) + kh,
-                            (y * sw):(y * sw) + kw,
+                    i = x * sh
+                    j = y * sw
+                    dA_prev[example, i:i + kh,
+                            j:j + kw,
                             :] += dZ[example, x, y, k] * W[:, :, :, k]
 
-                    dW[:,
-                       :,
-                       :,
-                       k] += output_pad[example,
-                                        (x * sh):(x * sh) + kh,
-                                        (y * sw):(y * sw) + kw,
-                                        :] * dZ[example, x, y, k]
+                    dW[:, :, :, k] += output_pad[example,
+                                                 i:i + kh,
+                                                 j:j + kw,
+                                                 :] * dZ[example, x, y, k]
 
     if padding == 'same':
         dA_prev = dA_prev[:, pad_h:-pad_h, pad_w:-pad_w, :]
