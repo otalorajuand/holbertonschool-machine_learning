@@ -20,19 +20,16 @@ def lenet5(x, y):
         - a tensor for the accuracy of the network
     """
 
-    # x = tf.placeholder("float", [None, 28, 28, 1], name="x")
-    # y = tf.placeholder("float", [None, 10], name="y")
+    x = tf.placeholder("float", [None, 28, 28, 1], name="x")
+    y = tf.placeholder("float", [None, 10], name="y")
 
-    kernel_initializer = tf.contrib.layers.variance_scaling_initializer(
-        mode="FAN_AVG")
+    weights_initializer = tf.contrib.layers.variance_scaling_initializer()
     C1 = tf.layers.Conv2D(
         filters=6,
-        kernel_size=(
-            5,
-            5),
+        kernel_size=(5,5),
         padding='same',
         activation=tf.nn.relu,
-        kernel_initializer=kernel_initializer)
+        kernel_initializer=weights_initializer)
     output_1 = C1(x)
 
     P1 = tf.layers.MaxPooling2D(pool_size=(2, 2), strides=(2, 2))
@@ -45,7 +42,7 @@ def lenet5(x, y):
             5),
         padding='valid',
         activation=tf.nn.relu,
-        kernel_initializer=kernel_initializer)
+        kernel_initializer=weights_initializer)
     output_3 = C2(output_2)
 
     P2 = tf.layers.MaxPooling2D(pool_size=(2, 2), strides=(2, 2))
@@ -53,18 +50,18 @@ def lenet5(x, y):
 
     FC3 = tf.layers.dense(activation=tf.nn.relu,
                           units=120,
-                          kernel_initializer=kernel_initializer)
+                          kernel_initializer=weights_initializer)
     output_5 = FC3(output_4)
 
     FC4 = tf.layers.dense(activation=tf.nn.relu,
                           units=84,
-                          kernel_initializer=kernel_initializer)
+                          kernel_initializer=weights_initializer)
     output_6 = FC4(output_5)
 
     FC5 = tf.layers.dense(activation=tf.nn.relu,
                           units=10,
-                          kernel_initializer=kernel_initializer)
-    output_7 = FC4(output_6)
+                          kernel_initializer=weights_initializer)
+    output_7 = FC5(output_6)
 
     softmax = tf.nn.softmax(output_7)
 
