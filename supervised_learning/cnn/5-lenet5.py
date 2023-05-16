@@ -14,7 +14,7 @@ def lenet5(X):
              (with default hyperparameters) and accuracy metrics
     """
 
-    initializer = K.initializers.HeNormal()
+    initializer = K.initializers.he_normal()
 
     C1 = K.layers.Conv2D(filters=6,
                          kernel_size=(5, 5),
