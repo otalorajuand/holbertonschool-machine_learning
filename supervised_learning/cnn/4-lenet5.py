@@ -58,8 +58,7 @@ def lenet5(x, y):
                           kernel_initializer=weights_initializer)
     output_6 = FC4(output_5)
 
-    FC5 = tf.layers.dense(activation=tf.nn.relu,
-                          units=10,
+    FC5 = tf.layers.dense(units=10,
                           kernel_initializer=weights_initializer)
     output_7 = FC5(output_6)
 
