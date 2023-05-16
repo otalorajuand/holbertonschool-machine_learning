@@ -27,28 +27,20 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
     (m, h_new, w_new, c_new) = dZ.shape
     (_, h_prev, w_prev, c_prev) = A_prev.shape
     (kh, kw, _, _) = W.shape
-    sh, sw = stride[0], stride[1]
+    sh, sw = stride
     pad_h, pad_w = 0, 0
 
     if padding == 'same':
         pad_h = ((((h_prev - 1) * sh) + kh - h_prev) // 2)
         pad_w = ((((w_prev - 1) * sw) + kw - w_prev) // 2)
 
-    dA_prev = np.zeros((m, h_prev + 2 * pad_h, w_prev + 2 * pad_w, c_prev))
-    dW = np.zeros(W.shape)
-    db = np.zeros(b.shape)
-
+    dA_prev = np.zeros((m, h_prev + (2 * pad_h), w_prev + (2 * pad_w), c_prev))
+    dW = np.zeros((kh, kw, c_prev, c_new))
     db = np.sum(dZ, axis=(0, 1, 2), keepdims=True)
-
-    examples = np.arange(m)
 
     output_pad = np.pad(A_prev, pad_width=((0, 0), (pad_h, pad_h),
                                            (pad_w, pad_w), (0, 0)),
                         mode='constant')
-
-    print(dW.shape)
-    print(dA_prev.shape)
-    print(dZ.shape)
 
     for x in range(h_new):
         for y in range(w_new):
@@ -57,24 +49,16 @@ def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
                     dA_prev[example,
                             (x * sh):(x * sh) + kh,
                             (y * sw):(y * sw) + kw,
-                            :] += dZ[example,
-                                     x,
-                                     y,
-                                     k] * W[:,
-                                            :,
-                                            :,
-                                            k]
+                            :] += dZ[example, x, y, k] * W[:, :, :, k]
+
                     dW[:,
                        :,
                        :,
                        k] += output_pad[example,
                                         (x * sh):(x * sh) + kh,
                                         (y * sw):(y * sw) + kw,
-                                        :] * dZ[example,
-                                                x,
-                                                y,
-                                                k]
+                                        :] * dZ[example, x, y, k]
 
     if padding == 'same':
-        dA_prev = dA_prev[:, ph:-ph, pw:-pw, :]
+        dA_prev = dA_prev[:, pad_h:-pad_h, pad_w:-pad_w, :]
     return dA_prev, dW, db
