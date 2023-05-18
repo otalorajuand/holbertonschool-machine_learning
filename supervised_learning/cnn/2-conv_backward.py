@@ -3,8 +3,6 @@
 import numpy as np
 
 
-import numpy as np
-
 def conv_backward(dZ, A_prev, W, b, padding="same", stride=(1, 1)):
     """
     Perform backpropagation over a convolutional layer.
