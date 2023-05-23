@@ -24,42 +24,39 @@ def identity_block(A_prev, filters):
     C1 = K.layers.Conv2D(filters=F11,
                          kernel_size=(1, 1),
                          padding='same',
-                         kernel_initializer=initializer,
-                         activation=K.activations.relu)(A_prev)
+                         kernel_initializer=initializer)(A_prev)
 
     # Batch normalization
-    BN_1 = K.layers.BatchNormalization()(C1)
+    BN_1 = K.layers.BatchNormalization(axis=3)(C1)
 
     # activation
-    relu_1 = K.activations.relu(BN_1)
+    relu_1 = K.layers.Activation(K.activations.relu)(BN_1)
 
     # 3x3 convolution
     C2 = K.layers.Conv2D(filters=F3,
                          kernel_size=(3, 3),
                          padding='same',
-                         kernel_initializer=initializer,
-                         activation=K.activations.relu)(relu_1)
+                         kernel_initializer=initializer)(relu_1)
 
     # Batch normalization
-    BN_2 = K.layers.BatchNormalization()(C2)
+    BN_2 = K.layers.BatchNormalization(axis=3)(C2)
 
     # activation
-    relu_2 = K.activations.relu(BN_2)
+    relu_2 = K.layers.Activation(K.activations.relu)(BN_2)
 
     # 1x1 convolution
     C3 = K.layers.Conv2D(filters=F12,
                          kernel_size=(1, 1),
                          padding='same',
-                         kernel_initializer=initializer,
-                         activation=K.activations.relu)(relu_2)
+                         kernel_initializer=initializer)(relu_2)
 
     # Batch normalization
-    BN_3 = K.layers.BatchNormalization()(C3)
+    BN_3 = K.layers.BatchNormalization(axis=3)(C3)
 
     # Addition
     add = K.layers.Add()([A_prev, BN_3])
 
     # Activation
-    relu_3 = K.activations.relu(add)
+    relu_3 = K.layers.Activation(K.activations.relu)(add)
 
     return relu_3
