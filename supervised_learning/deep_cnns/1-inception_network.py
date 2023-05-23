@@ -26,20 +26,13 @@ def inception_network():
                               strides=(2, 2))
     output_MP_1 = MP_1(output_1)
 
-    C2 = K.layers.Conv2D(filters=64,
-                         kernel_size=(1, 1),
-                         padding='same',
-                         strides=(1, 1),
-                         activation=K.activations.relu,
-                         kernel_initializer=initializer)(output_MP_1)
-
-    C3 = K.layers.Conv2D(filters=192,
+    C2 = K.layers.Conv2D(filters=192,
                          kernel_size=(3, 3),
                          padding='same',
                          strides=(1, 1),
                          kernel_initializer=initializer,
                          activation=K.activations.relu)
-    output_2 = C3(C2)
+    output_2 = C2(output_MP_1)
 
     MP_2 = K.layers.MaxPool2D(pool_size=(3, 3),
                               padding='same',
