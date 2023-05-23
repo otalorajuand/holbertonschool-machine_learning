@@ -43,20 +43,6 @@ def inception_block(A_prev, filters):
                           activation=K.activations.relu)
     output_3R = C3R(A_prev)
 
-    # 1x1 convolution before the 5x5 convolution
-    C5R = K.layers.Conv2D(filters=F5R,
-                          kernel_size=(1, 1),
-                          padding='same',
-                          kernel_initializer=initializer,
-                          activation=K.activations.relu)
-    output_5R = C5R(A_prev)
-
-    # 3x3 max pooling
-    MP = K.layers.MaxPool2D(pool_size=(3, 3),
-                            padding='same',
-                            strides=(1, 1))
-    output_MP = MP(A_prev)
-
     # the 3x3 convolution
     C3 = K.layers.Conv2D(filters=F3,
                          kernel_size=(3, 3),
@@ -65,6 +51,14 @@ def inception_block(A_prev, filters):
                          activation=K.activations.relu)
     output_3 = C3(output_3R)
 
+    # 1x1 convolution before the 5x5 convolution
+    C5R = K.layers.Conv2D(filters=F5R,
+                          kernel_size=(1, 1),
+                          padding='same',
+                          kernel_initializer=initializer,
+                          activation=K.activations.relu)
+    output_5R = C5R(A_prev)
+
     # the 5x5 convolution
     C5 = K.layers.Conv2D(filters=F5,
                          kernel_size=(5, 5),
@@ -72,6 +66,12 @@ def inception_block(A_prev, filters):
                          kernel_initializer=initializer,
                          activation=K.activations.relu)
     output_5 = C5(output_5R)
+
+    # 3x3 max pooling
+    MP = K.layers.MaxPool2D(pool_size=(3, 3),
+                            padding='same',
+                            strides=(1, 1))
+    output_MP = MP(A_prev)
 
     # the 1x1 convolution after the max pooling
     CPP = K.layers.Conv2D(filters=FPP,
