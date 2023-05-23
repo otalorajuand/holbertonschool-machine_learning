@@ -4,7 +4,7 @@ import tensorflow.keras as K
 
 
 def projection_block(A_prev, filters, s=2):
-    """builds a projection block as described in 
+    """builds a projection block as described in
        Deep Residual Learning for Image Recognition (2015)
 
     Params:
