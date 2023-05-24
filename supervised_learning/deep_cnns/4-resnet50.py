@@ -46,10 +46,10 @@ def resnet50():
     indentity_31 = identity_block(projection_3, [256, 256, 1024])
     indentity_32 = identity_block(indentity_31, [256, 256, 1024])
     indentity_33 = identity_block(indentity_32, [256, 256, 1024])
-    indentity_33 = identity_block(indentity_33, [256, 256, 1024])
-    indentity_33 = identity_block(indentity_33, [256, 256, 1024])
+    indentity_34 = identity_block(indentity_33, [256, 256, 1024])
+    indentity_35 = identity_block(indentity_34, [256, 256, 1024])
 
-    projection_4 = projection_block(indentity_33, [512, 512, 2048])
+    projection_4 = projection_block(indentity_35, [512, 512, 2048])
     indentity_41 = identity_block(projection_4, [512, 512, 2048])
     indentity_42 = identity_block(indentity_41, [512, 512, 2048])
 
