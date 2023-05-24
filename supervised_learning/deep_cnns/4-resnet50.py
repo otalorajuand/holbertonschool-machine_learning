@@ -21,7 +21,7 @@ def resnet50():
                          kernel_size=(7, 7),
                          padding='same',
                          strides=2,
-                         kernel_initializer=initializer)(A_prev)
+                         kernel_initializer=initializer)(X)
 
     # Batch normalization
     BN_1 = K.layers.BatchNormalization(axis=3)(C1)
