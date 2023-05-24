@@ -51,7 +51,7 @@ def densenet121(growth_rate=32, compression=1.0):
     dense4, np7 = dense_block(trans3, np6, growth_rate, 16)
 
     AP = K.layers.AveragePooling2D(pool_size=(7, 7),
-                                   padding='valid')(dense4)
+                                   padding='same')(dense4)
 
     linear = K.layers.Dense(units=1000,
                             activation='softmax',
