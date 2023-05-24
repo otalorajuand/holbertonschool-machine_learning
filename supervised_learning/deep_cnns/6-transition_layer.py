@@ -16,6 +16,8 @@ def transition_layer(X, nb_filters, compression):
              and the number of filters within the output, respectively
     """
 
+    initializer = K.initializers.he_normal()
+
     # Batch normalization
     B = K.layers.BatchNormalization()(X)
 
