@@ -13,6 +13,7 @@ def resnet50():
     Returns: the keras model
     """
 
+    X = K.Input(shape=(224, 224, 3))
     initializer = K.initializers.he_normal()
 
     # 7x7 convolution
