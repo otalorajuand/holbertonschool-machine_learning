@@ -22,7 +22,7 @@ def dense_block(X, nb_filters, growth_rate, layers):
     for lay in range(layers):
 
         # Batch normalization
-        B = K.layers.BatchNormalization(axis=3)(X)
+        B = K.layers.BatchNormalization()(X)
 
         # activation
         relu = K.layers.ReLU()(B)
@@ -35,10 +35,10 @@ def dense_block(X, nb_filters, growth_rate, layers):
                              kernel_initializer=initializer)(relu)
 
         # Batch normalization
-        N_2 = K.layers.BatchNormalization(axis=3)(BN)
+        N_2 = K.layers.BatchNormalization()(BN)
 
         # activation
-        relu_2 = K.layers.ReLU()(BN)
+        relu_2 = K.layers.ReLU()(N_2)
 
         # 3x3 convolution
         C = K.layers.Conv2D(filters=nb_filters,
