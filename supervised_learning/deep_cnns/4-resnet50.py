@@ -17,7 +17,7 @@ def resnet50():
 
     # 7x7 convolution
     C1 = K.layers.Conv2D(filters=64,
-                         kernel_size=(1, 1),
+                         kernel_size=(7, 7),
                          padding='same',
                          strides=2,
                          kernel_initializer=initializer)(A_prev)
