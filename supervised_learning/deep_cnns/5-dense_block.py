@@ -31,7 +31,6 @@ def dense_block(X, nb_filters, growth_rate, layers):
         BN = K.layers.Conv2D(filters=4 * nb_filters,
                              kernel_size=(1, 1),
                              padding='same',
-                             strides=1,
                              kernel_initializer=initializer)(relu)
 
         # Batch normalization
@@ -44,7 +43,6 @@ def dense_block(X, nb_filters, growth_rate, layers):
         C = K.layers.Conv2D(filters=nb_filters,
                             kernel_size=(3, 3),
                             padding='same',
-                            strides=1,
                             kernel_initializer=initializer)(relu_2)
 
         nb_filters += growth_rate
