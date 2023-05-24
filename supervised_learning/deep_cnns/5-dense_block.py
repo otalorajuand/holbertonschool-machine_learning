@@ -28,7 +28,7 @@ def dense_block(X, nb_filters, growth_rate, layers):
         relu = K.layers.ReLU()(B)
 
         # bottle neck convolution
-        BN = K.layers.Conv2D(filters=4 * nb_filters,
+        BN = K.layers.Conv2D(filters=4 * growth_rate,
                              kernel_size=(1, 1),
                              padding='same',
                              kernel_initializer=initializer)(relu)
@@ -40,7 +40,7 @@ def dense_block(X, nb_filters, growth_rate, layers):
         relu_2 = K.layers.ReLU()(N_2)
 
         # 3x3 convolution
-        C = K.layers.Conv2D(filters=nb_filters,
+        C = K.layers.Conv2D(filters=growth_rate,
                             kernel_size=(3, 3),
                             padding='same',
                             kernel_initializer=initializer)(relu_2)
