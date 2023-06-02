@@ -30,5 +30,5 @@ At the end of this project I was able to solve these conceptual questions:
 ### Try It On Your Machine :computer:
 ```bash
 git clone https://github.com/otalorajuand/holbertonschool-machine_learning.git
-cd regularization
+cd supervised_learning/regularization
 ```

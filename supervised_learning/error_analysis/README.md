@@ -45,6 +45,5 @@ At the end of this project I was able to solve these conceptual questions:
 ### Try It On Your Machine :computer:
 ```bash
 git clone https://github.com/otalorajuand/holbertonschool-machine_learning.git
-cd error_analysis
-./main_files/MAINFILE.py
+cd supervised_learning/error_analysis
 ```
