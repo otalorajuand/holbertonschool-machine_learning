@@ -16,7 +16,7 @@ class Yolo():
         nms_t: a float representing the IOU threshold for non-max suppression
         anchors: a numpy.ndarray of shape (outputs, anchor_boxes, 2) containing
                  all of the anchor boxes:
-            outputs: the number of outputs (predictions) made by the Darknet 
+            outputs: the number of outputs (predictions) made by the Darknet
                      model
             anchor_boxes: the number of anchor boxes used for each prediction
             2 => [anchor_box_width, anchor_box_height]
