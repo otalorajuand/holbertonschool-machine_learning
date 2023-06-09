@@ -230,7 +230,6 @@ class Yolo:
                 i = i + 1
             index_collect = index_collect + n
         return (box_predictions, p_box_classes, predicted_box_scores)
-    
 
     @staticmethod
     def load_images(folder_path):
