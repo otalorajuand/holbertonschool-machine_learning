@@ -230,3 +230,23 @@ class Yolo:
                 i = i + 1
             index_collect = index_collect + n
         return (box_predictions, p_box_classes, predicted_box_scores)
+    
+
+    @staticmethod
+    def load_images(folder_path):
+        """
+        Loads images
+
+        parameters:
+            folder_path [str]: path to the folder holding all images to load
+
+        returns:
+            tuple of (images, image_paths):
+                images [list]: images as numpy.ndarrays
+                image_paths [list]: paths to the individual images
+        """
+        image_paths = glob.glob(folder_path + "/*")
+        images = []
+        for image in image_paths:
+            images.append(cv2.imread(image))
+        return (images, image_paths)
