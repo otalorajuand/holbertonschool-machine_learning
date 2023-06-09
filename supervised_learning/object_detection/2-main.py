@@ -17,3 +17,4 @@ if __name__ == '__main__':
     print('Boxes:', boxes)
     print('Box classes:', box_classes)
     print('Box scores:', box_scores)
+    
