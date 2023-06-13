@@ -91,7 +91,7 @@ class NST:
         rescaled = resized / 255
         rescaled = tf.clip_by_value(rescaled, 0, 1)
         return (rescaled)
-    
+
     def load_model(self):
         """
         Creates the model used to calculate cost from VGG19 Keras base model
