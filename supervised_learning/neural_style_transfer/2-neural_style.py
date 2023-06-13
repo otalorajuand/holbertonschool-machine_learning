@@ -144,9 +144,10 @@ class NST:
         if len(input_layer.shape) is not 4:
             raise TypeError("input_layer must be a tensor of rank 4")
 
-        # We make the image channels first
-        channels = int(input_layer.shape[-1])
-        a = tf.reshape(input_layer, [-1, channels])
-        n = tf.shape(a)[0]
-        gram = tf.matmul(a, a, transpose_a=True)
-        return gram / tf.cast(n, tf.float32)
+        _, h, w, c = input_layer.shape
+        product = int(h * w)
+        features = tf.reshape(input_layer, (product, c))
+        gram = tf.matmul(features, features, transpose_a=True)
+        gram = tf.expand_dims(gram, axis=0)
+        gram /= tf.cast(product, tf.float32)
+        return (gram)
