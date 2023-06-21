@@ -18,14 +18,14 @@ At the end of this project I was able to solve these conceptual questions:
 
 | Filename | Task |
 | ------ | ------------------------------------------------- | 
-| [0-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/0-yolo.py)|  | 
-| [1-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/1-yolo.py)|  | 
-| [2-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/2-yolo.py)|  | 
-| [3-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/3-yolo.py)|  | 
-| [4-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/4-yolo.py)|  | 
-| [5-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/5-yolo.py)|  | 
-| [6-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/6-yolo.py)|  | 
-| [7-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/7-yolo.py)|  | 
+| [0-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/0-yolo.py)| Write a class Yolo that uses the Yolo v3 algorithm to perform object detection | 
+| [1-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/1-yolo.py)| Write a class Yolo that uses the Yolo v3 algorithm to perform object detection | 
+| [2-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/2-yolo.py)| Write a class Yolo that uses the Yolo v3 algorithm to perform object detection | 
+| [3-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/3-yolo.py)| Write a class Yolo that uses the Yolo v3 algorithm to perform object detection | 
+| [4-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/4-yolo.py)| Write a class Yolo that uses the Yolo v3 algorithm to perform object detection | 
+| [5-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/5-yolo.py)| Write a class Yolo that uses the Yolo v3 algorithm to perform object detection | 
+| [6-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/6-yolo.py)| Write a class Yolo that uses the Yolo v3 algorithm to perform object detection | 
+| [7-main.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/supervised_learning/object_detection/7-yolo.py)| Write a class Yolo that uses the Yolo v3 algorithm to perform object detection | 
 
 
 ### Try It On Your Machine :computer:
