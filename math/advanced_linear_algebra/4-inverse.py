@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-"""Function  that calculates the cofactor matrix of a matrix"""
+"""Function that calculates the inverse of a matrix"""
 
 
 def determinant(matrix):
     """Function that calculates the determinant of a matrix"""
+    if len(matrix) == 1 and len(matrix[0]) == 0:
+        return 1
+    if len(matrix) == 1 and len(matrix[0]) == 1:
+        return matrix[0][0]
     if len(matrix) == 2:
         return ((matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0]))
     det = []
@@ -19,16 +23,8 @@ def determinant(matrix):
 
 
 def cofactor(matrix):
-    """Function  that calculates the cofactor matrix of a matrix"""
-    if not isinstance(matrix, list) or len(matrix) == 0:
-        raise TypeError("matrix must be a list of lists")
-    for i in matrix:
-        if not isinstance(i, list):
-            raise TypeError("matrix must be a list of lists")
-    for i in matrix:
-        if len(matrix) != len(i):
-            raise ValueError("matrix must be a non-empty square matrix")
-    if len(matrix) == 1 and len(matrix) == 1:
+    """Function that calculates the cofactor matrix of a matrix"""
+    if len(matrix) == 1 and len(matrix[i]) == 1:
         return [[1]]
     if len(matrix) == 2:
         cofactor = [i[::-1] for i in matrix]
@@ -49,3 +45,27 @@ def cofactor(matrix):
             if (i + j) % 2 == 1:
                 cofactor[i][j] = -1 * determinant(mini)
     return cofactor
+
+
+def inverse(matrix):
+    """Function that calculates the inverse of a matrix"""
+    if not isinstance(matrix, list) or len(matrix) == 0:
+        raise TypeError("matrix must be a list of lists")
+    for i in matrix:
+        if not isinstance(i, list):
+            raise TypeError("matrix must be a list of lists")
+    for i in matrix:
+        if len(matrix) != len(i):
+            raise ValueError("matrix must be a non-empty square matrix")
+    det = determinant(matrix)
+    if det == 0:
+        return None
+    if len(matrix) == 1 and len(matrix[0]) == 1:
+        return [[1 / det]]
+    adjugate = cofactor(matrix)
+    copy = [[j for j in adjugate[i]] for i in range(len(adjugate))]
+    for i in range(len(adjugate)):
+        for j in range(len(adjugate[i])):
+            adjugate[j][i] = copy[i][j]
+    inverse = [[j / det for j in i] for i in adjugate]
+    return inverse
