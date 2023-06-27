@@ -4,11 +4,11 @@
 
 def determinant(matrix):
     """Function that calculates the determinant of a matrix"""
-    if type(matrix) is not list or len(matrix) == 0:
+    if not isinstance(matrix, list) or len(matrix) == 0:
         raise TypeError("matrix must be a list of lists")
     if len(matrix) > 0:
         for i in matrix:
-            if type(i) is not list:
+            if not isinstance(i, list):
                 raise TypeError("matrix must be a list of lists")
     if len(matrix) == 1 and len(matrix[0]) == 0:
         return 1
