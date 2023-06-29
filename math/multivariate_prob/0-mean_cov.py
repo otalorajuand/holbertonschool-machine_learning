@@ -29,6 +29,6 @@ def mean_cov(X):
     mean = np.sum(X, axis=0) / n
 
     Z = (X - mean)
-    cov = np.matmul(Z.T, Z) / n
+    cov = np.matmul(Z.T, Z) / (n - 1)
 
-    return mean, cov
+    return mean.reshape(1, -1), cov
