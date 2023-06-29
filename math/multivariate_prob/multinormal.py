@@ -20,7 +20,7 @@ class MultiNormal:
         if not isinstance(data, np.ndarray) or len(data.shape) != 2:
             raise TypeError('data must be a 2D numpy.ndarray')
 
-        n = data.shape[0]
+        n = data.shape[1]
 
         if n < 2:
             raise ValueError('data must contain multiple data points')
