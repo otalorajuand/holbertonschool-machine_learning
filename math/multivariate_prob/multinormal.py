@@ -17,6 +17,14 @@ class MultiNormal:
             cov - a numpy.ndarray of shape (d, d) containing the covariance
                   matrix data
         """
+        if not isinstance(data, np.ndarray) or len(data.shape) != 2:
+            raise TypeError('data must be a 2D numpy.ndarray')
+
+        n = data.shape[0]
+
+        if n < 2:
+            raise ValueError('data must contain multiple data points')
+
         self.mean, self.cov = self.mean_cov(data.T)
 
     @staticmethod
