@@ -69,6 +69,13 @@ class MultiNormal:
 
         Returns the value of the PDF
         """
+        if not isinstance(x, np.ndarray):
+            raise TypeError('x must be a numpy.ndarray')
+
+        d = self.data.shape[0]
+        if x.shape != (d, 1):
+            raise ValueError('x must have the shape ({}, 1)'.format(d))
+
         right = (x - self.mean).T @ np.linalg.inv(self.cov) @ (x - self.mean)
         right = np.exp(-0.5 * right)
 
