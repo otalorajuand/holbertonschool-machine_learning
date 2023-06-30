@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """This module contains the class MultiNormal"""
 import numpy as np
+import math
 
 
 class MultiNormal:
@@ -57,3 +58,21 @@ class MultiNormal:
         cov = np.matmul(Z.T, Z) / (n - 1)
 
         return mean.reshape(-1, 1), cov
+
+    def pdf(self, x):
+        """calculates the PDF at a data point
+
+        Params:
+            x: a numpy.ndarray of shape (d, 1) containing the data point
+               whose PDF should be calculated
+                - d is the number of dimensions of the Multinomial instance
+
+        Returns the value of the PDF
+        """
+        right = (x - self.mean).T @ np.linalg.inv(self.cov) @ (x - self.mean)
+        right = np.exp(-0.5 * right)
+
+        left = 1 / (np.sqrt((2 * math.pi) **
+                    self.mean.shape[0]) * np.sqrt(np.linalg.det(self.cov)))
+
+        return (left * right)[0][0]
