@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """This module contains the function likelihood"""
 import numpy as np
-import math
+from scipy.special import comb
 
 
 def likelihood(x, n, P):
@@ -18,7 +18,7 @@ def likelihood(x, n, P):
              the data, x and n, for each probability in P, respectively
     """
     if not isinstance(n, int) or n <= 0:
-        raise ValueError('the message n must be a positive integer')
+        raise ValueError('n must be a positive integer')
 
     if not isinstance(x, int) or x < 0:
         raise ValueError(
@@ -33,6 +33,6 @@ def likelihood(x, n, P):
     if np.all(np.logical_or(P < 0, P > 1)):
         ValueError('All values in P must be in the range [0, 1]')
 
-    C = math.comb(n, x)
+    C = comb(n, x)
 
     return C * (P ** x) * ((1 - P) ** (n - x))
