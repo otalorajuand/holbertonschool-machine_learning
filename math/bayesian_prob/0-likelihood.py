@@ -30,7 +30,7 @@ def likelihood(x, n, P):
     if not isinstance(P, np.ndarray):
         raise TypeError('P must be a 1D numpy.ndarray')
 
-    if not np.all(np.logical_and(array >= 0, array <= 1)):
+    if not np.all(np.logical_and(P >= 0, P <= 1)):
         raise ValueError('All values in P must be in the range [0, 1]')
 
     C = comb(n, x)
