@@ -28,10 +28,10 @@ def likelihood(x, n, P):
         raise ValueError('x cannot be greater than n')
 
     if not isinstance(P, np.ndarray):
-        TypeError('P must be a 1D numpy.ndarray')
+        raise TypeError('P must be a 1D numpy.ndarray')
 
     if np.all(np.logical_or(P < 0, P > 1)):
-        ValueError('All values in P must be in the range [0, 1]')
+        raise ValueError('All values in P must be in the range [0, 1]')
 
     C = comb(n, x)
 
