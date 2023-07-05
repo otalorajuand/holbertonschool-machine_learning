@@ -22,4 +22,4 @@ def pca(X, ndim):
     w = vh.T
     wr = w[:, :ndim]
 
-    return np.matmul(X, wr)
+    return np.matmul(X_mean, wr)
