@@ -15,8 +15,8 @@ def initialize(X, k):
              centroids for each cluster, or None on failure
     """
 
-    maxs = np.max(X)
-    mins = np.min(X)
+    maxs = np.max(X, axis=0)
+    mins = np.min(X, axis=0)
 
     res = np.random.uniform(mins, maxs, (k, 2))
     return res

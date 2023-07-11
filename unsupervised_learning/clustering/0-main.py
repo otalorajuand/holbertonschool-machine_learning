@@ -14,5 +14,5 @@ if __name__ == "__main__":
     X = np.concatenate((a, b, c, d, e), axis=0)
     np.random.shuffle(X)
     plt.scatter(X[:, 0], X[:, 1], s=10)
-    #plt.show()
+    plt.show()
     print(initialize(X, 5))
