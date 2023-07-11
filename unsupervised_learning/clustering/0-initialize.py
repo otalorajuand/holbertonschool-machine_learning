@@ -21,8 +21,6 @@ def initialize(X, k):
     if not isinstance(X, np.ndarray) or len(X.shape) != 2:
         return None
 
-    print(X.shape)
-
     n, d = X.shape
 
     maxs = np.max(X, axis=0)
