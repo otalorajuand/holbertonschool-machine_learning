@@ -15,8 +15,16 @@ def initialize(X, k):
              centroids for each cluster, or None on failure
     """
 
+    if not isinstance(k, int) or k <= 0:
+        return None
+
+    if not isinstance(X, np.ndarray):
+        return None
+
+    n, d = X.shape
+
     maxs = np.max(X, axis=0)
     mins = np.min(X, axis=0)
 
-    res = np.random.uniform(mins, maxs, (k, 2))
+    res = np.random.uniform(mins, maxs, (k, d))
     return res
