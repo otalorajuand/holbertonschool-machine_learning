@@ -1,24 +1,25 @@
 #!/usr/bin/env python3
-"""This module contains the function kmeans"""
+"""K means"""
+
 import numpy as np
 
 
 def kmeans(X, k, iterations=1000):
-    """performs K-means on a dataset
-
-    Params:
-        X: a numpy.ndarray of shape (n, d) containing the dataset
-        k: a positive integer containing the number of clusters
-        iterations: a positive integer containing the maximum
-                    number of iterations that should be performed
-
-    Returns: C, clss, or None, None on failure
-        C: a numpy.ndarray of shape (k, d) containing
-           the centroid means for each cluster
-        clss: a numpy.ndarray of shape (n,) containing the index of
-              the cluster in C that each data point belongs to
     """
-
+    K-means on a data set
+    Args:
+        X: numpy.ndarray of shape (n, d) containing the dataset
+           n: the number of data points
+           d: the number of dimensions for each data point
+        k: positive integer containing the number of clusters
+        iterations: positive integer containing the maximum number of
+        iterations that should be performed
+    Returns: C, clss, or None, None on failure
+             C: numpy.ndarray of shape (k, d) containing the centroid means
+                for each cluster
+             clss: numpy.ndarray of shape (n,) containing the index of
+                  the cluster in C that each data point belongs to
+    """
     if not isinstance(X, np.ndarray) or len(X.shape) != 2:
         return None, None
     if not isinstance(k, int) or k <= 0:
