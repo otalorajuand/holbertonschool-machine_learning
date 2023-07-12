@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """This module contains the function kmeans"""
+import numpy as np
 
 
 def kmeans(X, k, iterations=1000):
