@@ -10,13 +10,13 @@ def kmeans(X, k, iterations=1000):
     Args:
         X: numpy.ndarray of shape (n, d) containing the dataset
            n: the number of data points
-           d: the number of dimensions for each data point
+           d: the number of dimensions per each data point
         k: positive integer containing the number of clusters
         iterations: positive integer containing the maximum number of
         iterations that should be performed
     Returns: C, clss, or None, None on failure
              C: numpy.ndarray of shape (k, d) containing the centroid means
-                for each cluster
+                per each cluster
              clss: numpy.ndarray of shape (n,) containing the index of
                   the cluster in C that each data point belongs to
     """
@@ -35,7 +35,7 @@ def kmeans(X, k, iterations=1000):
     # Centroid
     C = np.random.uniform(X_min, X_max, size=(k, d))
 
-    # Loop for the maximum number of iterations
+    # Loop per the maximum number of iterations
     for i in range(iterations):
 
         # initializes k centroids by selecting them from the data points
@@ -44,7 +44,7 @@ def kmeans(X, k, iterations=1000):
 
         # distances also know as euclidean distance
         distances = np.sqrt(((X - centroids_extended) ** 2).sum(axis=2))
-        # an array containing the index to the nearest centroid for each point
+        # an array containing the index to the nearest centroid per each point
         clss = np.argmin(distances, axis=0)
 
         # Assign all points to the nearest centroid
