@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """This module containst the function kmeans"""
-from sklearn.cluster import KMeans
+import sklearn.cluster
 
 
 def kmeans(X, k):
@@ -17,6 +17,6 @@ def kmeans(X, k):
               of the cluster in C that each data point belongs to
     """
 
-    kmeans = KMeans(n_clusters=k, random_state=0, n_init="auto").fit(X)
+    kmeans = sklearn.cluster.KMeans(n_clusters=k, random_state=0, n_init="auto").fit(X)
 
     return kmeans.cluster_centers_, kmeams.labels_
