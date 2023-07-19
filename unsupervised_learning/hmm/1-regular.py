@@ -11,7 +11,7 @@ def regular(P):
            P[i, j] is the probability of transitioning from state i to state j
         n: number of states in the Markov chain
     Returns:
-        numpy.ndarray of shape (1, n) containing the steady state probabilities,
+        numpy.ndarray of shape (1, n) containing the steady state probabilities
         or None on failure
     """
     if not isinstance(
