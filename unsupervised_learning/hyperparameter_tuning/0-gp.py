@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """This module contains the class GaussianProcess"""
+import numpy as np
 
 
 class GaussianProcess:
