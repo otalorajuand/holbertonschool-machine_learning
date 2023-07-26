@@ -64,13 +64,12 @@ class GaussianProcess:
 
         return mu_s.reshape(-1), cov_s.diagonal()
 
-
     def update(self, X_new, Y_new):
         """updates a Gaussian Process
 
         X_new is a numpy.ndarray of shape (1,) that represents the new sample point
         Y_new is a numpy.ndarray of shape (1,) that represents the new sample function value
         """
-        self.X = np.append(self.X, X_new).reshape(-1,1)
-        self.Y = np.append(self.Y, Y_new).reshape(-1,1)
+        self.X = np.append(self.X, X_new).reshape(-1, 1)
+        self.Y = np.append(self.Y, Y_new).reshape(-1, 1)
         self.K = self.kernel(self.X, self.X)
