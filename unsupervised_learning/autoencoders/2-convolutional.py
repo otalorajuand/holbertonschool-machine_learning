@@ -47,7 +47,7 @@ def autoencoder(input_dims, filters, latent_dims):
     conv_decoded = K.layers.Conv2D(filters=filters[-1], kernel_size=(
         3, 3), padding='same', activation=K.activations.relu)(input_decoded)
 
-    up_sampling_decode = K.layers.UpSampling2D(size=(2, 2))(conv_decoded)
+    up_sample_decode = K.layers.UpSampling2D(size=(2, 2))(conv_decoded)
 
     for i in reversed(filters[:-2]):
 
@@ -57,17 +57,21 @@ def autoencoder(input_dims, filters, latent_dims):
                 3,
                 3),
             padding='same',
-            activation=K.activations.relu)(up_sampling_decode)
+            activation=K.activations.relu)(up_sample_decode)
 
-        up_sampling_decode = K.layers.UpSampling2D(size=(2, 2))(conv_decoded)
+        up_sample_decode = K.layers.UpSampling2D(size=(2, 2))(conv_decoded)
 
-    conv_decoded = K.layers.Conv2D(filters=filters[0], kernel_size=(
-        3, 3), padding='valid', activation=K.activations.relu)(up_sampling_decode)
+    conv_decoded = K.layers.Conv2D(filters=filters[0], 
+    kernel_size=(3, 3), 
+    padding='valid', 
+    activation=K.activations.relu)(up_sample_decode)
 
-    up_sampling_decode = K.layers.UpSampling2D(size=(2, 2))(conv_decoded)
+    up_sample_decode = K.layers.UpSampling2D(size=(2, 2))(conv_decoded)
 
-    conv_decoded = K.layers.Conv2D(filters=input_dims[-1], kernel_size=(
-        3, 3), padding='same', activation=K.activations.sigmoid)(up_sampling_decode)
+    conv_decoded = K.layers.Conv2D(filters=input_dims[-1], 
+                                   kernel_size=(3, 3), 
+                                   padding='same', 
+                            activation=K.activations.sigmoid)(up_sample_decode)
 
     decoder = K.Model(input_decoded, conv_decoded)
 
