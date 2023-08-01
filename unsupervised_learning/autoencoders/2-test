@@ -1,14 +1,23 @@
 InputLayer
-[(None, 784)]
-Dense
+[(None, 28, 28, 1)]
+Conv2D
 relu
-(None, 784)
-(None, 128)
-Dense
+(None, 28, 28, 1)
+(None, 28, 28, 16)
+MaxPooling2D
+(None, 28, 28, 16)
+(None, 14, 14, 16)
+Conv2D
 relu
-(None, 128)
-(None, 64)
-Dense
+(None, 14, 14, 16)
+(None, 14, 14, 8)
+MaxPooling2D
+(None, 14, 14, 8)
+(None, 7, 7, 8)
+Conv2D
 relu
-(None, 64)
-(None, 32)
+(None, 7, 7, 8)
+(None, 7, 7, 8)
+MaxPooling2D
+(None, 7, 7, 8)
+(None, 4, 4, 8)

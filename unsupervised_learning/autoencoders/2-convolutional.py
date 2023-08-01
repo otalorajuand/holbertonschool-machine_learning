@@ -49,7 +49,7 @@ def autoencoder(input_dims, filters, latent_dims):
 
     up_sample_decode = K.layers.UpSampling2D(size=(2, 2))(conv_decoded)
 
-    for i in reversed(filters[:-2]):
+    for i in reversed(filters[1:-1]):
 
         conv_decoded = K.layers.Conv2D(
             filters=i,

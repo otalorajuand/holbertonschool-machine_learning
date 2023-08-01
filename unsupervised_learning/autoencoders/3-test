@@ -1,14 +1,27 @@
 InputLayer
-[(None, 32)]
-Dense
+[(None, 4, 4, 8)]
+Conv2D
 relu
-(None, 32)
-(None, 64)
-Dense
+(None, 4, 4, 8)
+(None, 4, 4, 8)
+UpSampling2D
+(None, 4, 4, 8)
+(None, 8, 8, 8)
+Conv2D
 relu
-(None, 64)
-(None, 128)
-Dense
+(None, 8, 8, 8)
+(None, 8, 8, 16)
+UpSampling2D
+(None, 8, 8, 16)
+(None, 16, 16, 16)
+Conv2D
+relu
+(None, 16, 16, 16)
+(None, 14, 14, 16)
+UpSampling2D
+(None, 14, 14, 16)
+(None, 28, 28, 16)
+Conv2D
 sigmoid
-(None, 128)
-(None, 784)
+(None, 28, 28, 16)
+(None, 28, 28, 1)
