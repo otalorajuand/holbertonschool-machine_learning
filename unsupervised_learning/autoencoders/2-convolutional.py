@@ -31,7 +31,7 @@ def autoencoder(input_dims, filters, latent_dims):
     for i in filters[1:]:
         conv_encoded = K.layers.Conv2D(
             filters=i,
-            kernel_size=(3,3),
+            kernel_size=(3, 3),
             padding='same',
             activation=K.activations.relu)(MP_encoded)
 
