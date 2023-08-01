@@ -1,0 +1,14 @@
+InputLayer
+[(None, 32)]
+Dense
+relu
+(None, 32)
+(None, 64)
+Dense
+relu
+(None, 64)
+(None, 128)
+Dense
+sigmoid
+(None, 128)
+(None, 784)
