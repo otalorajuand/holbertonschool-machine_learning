@@ -13,7 +13,7 @@ x_test = x_test.astype('float32') / 255.
 x_train = x_train.reshape((-1, 784))
 x_test = x_test.reshape((-1, 784))
 np.random.seed(0)
-tf.set_random_seed(0)
+#tf.set_random_seed(0)
 encoder, decoder, auto = autoencoder(784, [512], 2)
 auto.fit(x_train, x_train, epochs=50, batch_size=256, shuffle=True,
                 validation_data=(x_test, x_test))
@@ -23,6 +23,7 @@ print(np.exp(log_sig / 2))
 reconstructed = decoder.predict(encoded).reshape((-1, 28, 28))
 x_test = x_test.reshape((-1, 28, 28))
 
+"""
 for i in range(10):
     ax = plt.subplot(2, 10, i + 1)
     ax.axis('off')
@@ -31,6 +32,7 @@ for i in range(10):
     ax.axis('off')
     plt.imshow(reconstructed[i])
 plt.show()
+"""
 
 
 l1 = np.linspace(-3, 3, 25)
@@ -42,4 +44,4 @@ for i in range(25*25):
     ax = plt.subplot(25, 25, i + 1)
     ax.axis('off')
     plt.imshow(G[i].reshape((28, 28)))
-plt.show()
+plt.savefig('fig1.png')
