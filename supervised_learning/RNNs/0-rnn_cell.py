@@ -37,8 +37,8 @@ class RNNCell:
         - h_next is the next hidden state
         - y is the output of the cell
         """
-        def softmax(x):
-            return (np.exp(x) / np.exp(x).sum())
+        def softmax(z):
+            return np.exp(z) / np.sum(np.exp(z), axis=1, keepdims=True)
 
         h_next = np.tanh(np.matmul(np.concatenate((h_prev, x_t), axis=1),
                          self.Wh) +
