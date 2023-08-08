@@ -30,17 +30,16 @@ def deep_rnn(rnn_cells, X, h_0):
 
     H = np.empty((t + 1, l, m, h))
     H[0, :, :, :] = h_0
-    h_next = h_0
     Y = np.empty((t, m, o))
 
     for iter in range(t):
 
         h_next, y = rnn_cells[0].forward(H[iter, 0], X[iter])
+        H[iter + 1, 0, :, :] = h_next
 
         for cell in range(1, l):
 
             h_next, y = rnn_cells[cell].forward(H[iter, cell], h_next)
-
             H[iter + 1, cell, :, :] = h_next
 
         Y[iter, :, :] = y
