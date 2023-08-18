@@ -1,79 +1,58 @@
-import os
-import datetime
-
-import IPython
-import IPython.display
 import matplotlib as mpl
-import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
-import seaborn as sns
-import tensorflow as tf
 
-mpl.rcParams['figure.figsize'] = (8, 6)
-mpl.rcParams['axes.grid'] = False
+# Define the path to the CSV file
+csv_path = '../data/bitstampUSD_1-min_data_2012-01-01_to_2020-04-22.csv'
 
-csv_path = 'sample_data/bitstampUSD_1-min_data_2012-01-01_to_2020-04-22.csv'
+# Read the CSV data into a DataFrame
 df = pd.read_csv(csv_path)
 
-
+# Select every 8th row starting from the 9th row (skipping some data for
+# downsampling)
 df = df[8::60]
 
-df['date'] = pd.to_datetime(df['Timestamp'],unit='s')
+# Convert the 'Timestamp' column to a datetime object and filter data from
+# year 2015 onwards
+df['date'] = pd.to_datetime(df['Timestamp'], unit='s')
 df = df[df['date'].dt.year > 2014]
 
+# Extract the 'date' column for later use
 date = df['date']
 
-df = df.loc[:, ~df.columns.isin(['date', 'Timestamp'])].interpolate(method='polynomial', order=2)
+# Interpolate missing values using a polynomial of order 2
+df = df.loc[:, ~df.columns.isin(['date', 'Timestamp'])].interpolate(
+    method='polynomial', order=2)
 
+# Calculate High-Low percentage change and Percentage change in Closing
+# and Opening prices
 df['HL_PCT'] = (df['High'] - df['Close']) / df['Close'] * 100
 df['PCT_change'] = (df['Close'] - df['Open']) / df['Open'] * 100
+
+# Select relevant columns for analysis
 df = df[['Close', 'HL_PCT', 'PCT_change', 'Volume_(BTC)']]
 
-plot_cols = ['Close', 'HL_PCT', 'PCT_change', 'Volume_(BTC)']
-plot_features = df[plot_cols]
-plot_features.index = date
-_ = plot_features.plot(subplots=True)
-
-plot_features = df[plot_cols][:480]
-plot_features.index = date[:480]
-_ = plot_features.plot(subplots=True)
-
+# Convert the 'date' column to timestamp in seconds
 timestamp_s = date.map(pd.Timestamp.timestamp)
 
-fft = tf.signal.rfft(df['Close'])
-f_per_dataset = np.arange(0, len(fft))
-
-n_samples_h = len(df['Close'])
-hours_per_year = 24*365.2524
-years_per_dataset = n_samples_h/(hours_per_year)
-
-f_per_year = f_per_dataset/years_per_dataset
-plt.step(f_per_year, np.abs(fft))
-plt.xscale('log')
-plt.ylim(0, 40000000)
-plt.xlim([0.1, max(plt.xlim())])
-plt.xticks([1, 365.2524], labels=['1/Year', '1/day'])
-_ = plt.xlabel('Frequency (log scale)')
-
+# Create a dictionary mapping column names to indices
 column_indices = {name: i for i, name in enumerate(df.columns)}
 
 n = len(df)
-train_df = df[0:int(n*0.7)]
-val_df = df[int(n*0.7):int(n*0.9)]
-test_df = df[int(n*0.9):]
+train_df = df[0:int(n * 0.7)]
+val_df = df[int(n * 0.7):int(n * 0.9)]
+test_df = df[int(n * 0.9):]
 
+# Calculate the number of features (columns) in the DataFrame
 num_features = df.shape[1]
 
+# Calculate mean and standard deviation for normalization
 train_mean = train_df.mean()
 train_std = train_df.std()
 
+# Normalize the training, validation, and test DataFrames
 train_df = (train_df - train_mean) / train_std
 val_df = (val_df - train_mean) / train_std
 test_df = (test_df - train_mean) / train_std
 
+# Normalize the entire DataFrame using the training mean and standard deviation
 df_std = (df - train_mean) / train_std
-df_std = df_std.melt(var_name='Column', value_name='Normalized')
-plt.figure(figsize=(12, 6))
-ax = sns.violinplot(x='Column', y='Normalized', data=df_std)
-_ = ax.set_xticklabels(df.keys(), rotation=90)
