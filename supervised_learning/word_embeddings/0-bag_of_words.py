@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """This module contains the function bag_of_words"""
-import numpy as np
-import re
+from sklearn.feature_extraction.text import CountVectorizer
 
 
 def bag_of_words(sentences, vocab=None):
@@ -18,31 +17,13 @@ def bag_of_words(sentences, vocab=None):
         f is the number of features analyzed
     - features is a list of the features used for embeddings
     """
-    if not vocab:
-        vocab = []
+    if vocab is None:
+        vectorizer = CountVectorizer()
+        X = vectorizer.fit_transform(sentences)
+        vocab = vectorizer.get_feature_names_out()
+    else:
+        vectorizer = CountVectorizer(vocabulary=vocab)
+        X = vectorizer.fit_transform(sentences)
+    embedding = X.toarray()
 
-        for sentence in sentences:
-            # Convert to lowercase and split by spaces
-            words = sentence.lower().split()
-
-            # Remove non-letter symbols using regular expression
-            words = [re.sub(r'[^a-z]', '', word) for word in words]
-
-            # Remove empty strings resulting from symbols removal
-            words = [word for word in words if word]
-
-            vocab.extend(words)
-
-        vocab = sorted(list(set(vocab)))
-
-    n_sentences = len(sentences)
-    n_vocab = len(vocab)
-    embeddings = np.zeros((n_sentences, n_vocab),dtype=int)
-
-    for i, row in enumerate(embeddings):
-        for j, elem in enumerate(row):
-            sentence = sentences[i].lower()
-            if vocab[j] in sentence:
-                embeddings[i, j] = sentence.count(vocab[j])
-
-    return embeddings, vocab
+    return embedding, vocab
