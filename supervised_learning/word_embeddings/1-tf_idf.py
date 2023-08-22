@@ -24,7 +24,7 @@ def tf_idf(sentences, vocab=None):
     else:
         vectorizer = TfidfVectorizer(vocabulary=vocab)
         X = vectorizer.fit_transform(sentences)
-    
+
     embedding = X.toarray()
 
     return embedding, vocab
