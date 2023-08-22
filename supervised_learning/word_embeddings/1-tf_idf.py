@@ -19,10 +19,12 @@ def tf_idf(sentences, vocab=None):
     """
     if vocab is None:
         vectorizer = TfidfVectorizer()
+        X = vectorizer.fit_transform(sentences)
         vocab = vectorizer.get_feature_names()
     else:
         vectorizer = TfidfVectorizer(vocabulary=vocab)
-    X = vectorizer.fit_transform(sentences)
+        X = vectorizer.fit_transform(sentences)
+    
     embedding = X.toarray()
 
     return embedding, vocab
