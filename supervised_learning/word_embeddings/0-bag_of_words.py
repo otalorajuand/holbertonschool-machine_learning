@@ -37,7 +37,7 @@ def bag_of_words(sentences, vocab=None):
 
     n_sentences = len(sentences)
     n_vocab = len(vocab)
-    embeddings = np.zeros((n_sentences, n_vocab))
+    embeddings = np.zeros((n_sentences, n_vocab),dtype=int)
 
     for i, row in enumerate(embeddings):
         for j, elem in enumerate(row):
