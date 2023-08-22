@@ -20,7 +20,7 @@ def bag_of_words(sentences, vocab=None):
     if vocab is None:
         vectorizer = CountVectorizer()
         X = vectorizer.fit_transform(sentences)
-        vocab = vectorizer.get_feature_names_out()
+        vocab = vectorizer.get_feature_names()
     else:
         vectorizer = CountVectorizer(vocabulary=vocab)
         X = vectorizer.fit_transform(sentences)
