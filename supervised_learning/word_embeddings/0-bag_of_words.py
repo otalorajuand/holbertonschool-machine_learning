@@ -41,7 +41,8 @@ def bag_of_words(sentences, vocab=None):
 
     for i, row in enumerate(embeddings):
         for j, elem in enumerate(row):
-            if vocab[j] in sentences[i].lower():
-                embeddings[i, j] += 1
+            sentence = sentences[i].lower()
+            if vocab[j] in sentence:
+                embeddings[i, j] = sentence.count(vocab[j])
 
     return embeddings, vocab
