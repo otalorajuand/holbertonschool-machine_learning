@@ -23,6 +23,6 @@ def uni_bleu(references, sentence):
             counts += 1
 
     min_reference = min([len(reference) for reference in references])
-    bp = np.exp(1 - (min_reference / len_sen))
+    bp = min(1, np.exp(1 - (min_reference / len_sen)))
 
     return bp * (counts / len_sen)
