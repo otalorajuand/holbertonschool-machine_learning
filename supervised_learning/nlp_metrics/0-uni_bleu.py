@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""This module contains the function uni_bleu"""
+"""BLEU Score"""
+
 import numpy as np
 
 
@@ -12,19 +13,37 @@ def uni_bleu(references, sentence):
     Returns: unigram BLEU score
     """
 
+    sen = list(set(sentence))
+    count_dict = {}
+
+    # Count appearances
+    for reference in references:
+        for word in reference:
+            if word in sen:
+                if word not in count_dict.keys():
+                    count_dict[word] = reference.count(word)
+                else:
+                    new = reference.count(word)
+                    old = count_dict[word]
+                    count_dict[word] = max(new, old)
+
+    # Clipping
     len_sen = len(sentence)
+    list_references = []
+    for reference in references:
+        len_ren = len(reference)
+        list_references.append(((abs(len_ren - len_sen)), len_ren))
 
-    word_references = list(
-        set([x for reference in references for x in reference]))
+    # Precision
+    reference_len = sorted(list_references, key=lambda x: x[0])
+    reference_len = reference_len[0][1]
 
-    counts = 0
-    for word in sentence:
-        if word in word_references:
-            counts += 1
+    # Penalty
+    if len_sen > reference_len:
+        bp = 1
+    else:
+        bp = np.exp(1 - (float(reference_len) / len_sen))
 
-    min_reference = min([len(reference) for reference in references])
+    bleu_score = bp * np.exp(np.log(sum(count_dict.values()) / len_sen))
 
-    bp = 1 if len_sen > min_reference else np.exp(
-        1 - (min_reference / len_sen))
-
-    return bp * (counts / len_sen)
+    return bleu_score
