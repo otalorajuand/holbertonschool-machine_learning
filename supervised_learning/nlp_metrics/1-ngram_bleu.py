@@ -35,7 +35,6 @@ def ngram_bleu(references, sentence, n):
     """
     count_dict = {}
     c_grams = ngram(sentence, n)
-    print("n_gram, ", c_grams)
     c_grams = list(set(c_grams))
     len_trans = len(c_grams)
 
