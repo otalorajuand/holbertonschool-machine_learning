@@ -19,7 +19,7 @@ def sdp_attention(Q, K, V, mask=None):
     Returns: output, weights
     - outputa tensor with its last two dimensions as (..., seq_len_q, dv)
       containing the scaled dot product attention
-    - weights a tensor with its last two dimensions as 
+    - weights a tensor with its last two dimensions as
       (..., seq_len_q, seq_len_v) containing the attention weights
     """
     seq_len_q, dk = tf.shape(Q)[-2], float(tf.shape(Q)[-1])
