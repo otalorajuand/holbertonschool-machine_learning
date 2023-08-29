@@ -13,11 +13,15 @@ def positional_encoding(max_seq_len, dm):
     Returns: a numpy.ndarray of shape (max_seq_len, dm) containing the
              positional encoding vectors
     """
-    n = 1000
-    P = np.zeros((max_seq_len, dm))
-    for k in range(max_seq_len):
-        for i in np.arange(int(dm / 2)):
-            denominator = np.power(n, 2 * i / dm)
-            P[k, 2 * i] = np.sin(k / denominator)
-            P[k, 2 * i + 1] = np.cos(k / denominator)
-    return P
+    p_encoding = np.arange(max_seq_len)[:, np.newaxis]
+    i = np.arange(dm)[np.newaxis, :]
+    dm_n = np.float32(dm)
+
+    grad_angle = 1 / (np.power(10000, (2 * (i // 2) / dm_n)))
+    angle = p_encoding * grad_angle
+
+    positional = np.zeros((max_seq_len, dm))
+
+    positional[:, 0::2] = np.sin(angle[:, 0::2])
+    positional[:, 1::2] = np.cos(angle[:, 1::2])
+    return positional
