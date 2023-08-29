@@ -26,7 +26,7 @@ class RNNEncoder(K.layers.Layer):
         self.gru = tf.keras.layers.GRU(units=units,
                                        return_sequences=True,
                                        return_state=True,
-                                       kernel_initializer="glorot_uniform")
+                                       recurrent_initializer="glorot_uniform")
 
     def initialize_hidden_state(self):
         """Initializes the hidden states for the RNN cell to a tensor of zeros
