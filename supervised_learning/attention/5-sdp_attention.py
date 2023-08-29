@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """This module contains the function sdp_attention"""
 import tensorflow as tf
-import math
 
 
 def sdp_attention(Q, K, V, mask=None):
@@ -23,13 +22,13 @@ def sdp_attention(Q, K, V, mask=None):
     - weights a tensor with its last two dimensions as (..., seq_len_q, seq_len_v)
       containing the attention weights
     """
-    seq_len_q, dk = tf.shape(Q)[-2], tf.shape(Q)[-1]
+    seq_len_q, dk = tf.shape(Q)[-2], float(tf.shape(Q)[-1])
     seq_len_v = tf.shape(K)[-2]
     dv = tf.shape(V)[-1]
 
     qk_matmul = tf.matmul(Q, K, transpose_b=True)
 
-    scaled = qk_matmul / math.sqrt(dk)
+    scaled = qk_matmul / tf.math.sqrt(dk)
 
     if mask is not None:
         mask = mask * -1e9
