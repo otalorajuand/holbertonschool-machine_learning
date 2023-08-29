@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """This module contains the class RNNEncoder"""
-import tensorflow.keras as K
 import tensorflow as tf
 
 
@@ -23,11 +22,11 @@ class RNNEncoder(K.layers.Layer):
 
         self.batch = batch
         self.units = units
-        self.embedding = K.layers.Embedding(vocab, embedding)
-        self.gru = K.layers.GRU(units=units,
-                                return_sequences=True,
-                                return_state=True,
-                                kernel_initializer="glorot_uniform")
+        self.embedding = tf.keras.layers.Embedding(vocab, embedding)
+        self.gru = tf.keras.layers.GRU(units=units,
+                                       return_sequences=True,
+                                       return_state=True,
+                                       kernel_initializer="glorot_uniform")
 
     def initialize_hidden_state(self):
         """Initializes the hidden states for the RNN cell to a tensor of zeros
