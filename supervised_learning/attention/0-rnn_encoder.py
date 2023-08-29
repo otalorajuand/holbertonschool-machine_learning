@@ -18,7 +18,7 @@ class RNNEncoder(K.layers.Layer):
         - batch is an integer representing the batch size
         """
 
-        super().__init__()
+        super(RNNEncoder, self).__init__()
 
         self.batch = batch
         self.units = units
