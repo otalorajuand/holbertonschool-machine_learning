@@ -81,4 +81,4 @@ class Transformer(tf.keras.Model):
             decoder_mask)
         linear = self.linear(decoded)
 
-        return tf.nn.softmax(linear)
+        return linear
