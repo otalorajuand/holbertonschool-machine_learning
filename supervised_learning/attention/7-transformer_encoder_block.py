@@ -19,7 +19,7 @@ class EncoderBlock(tf.keras.layers.Layer):
         super().__init__()
 
         self.mha = MultiHeadAttention(dm, h)
-        self.dense_hidden = tf.keras.layers.Dense(units=hidden, activation='relu')
+        self.dense_hidden = tf.keras.layers.Dense(hidden, activation='relu')
         self.dense_output = tf.keras.layers.Dense(units=dm)
         self.layernorm1 = tf.keras.layers.LayerNormalization(epsilon=1e-6)
         self.layernorm2 = tf.keras.layers.LayerNormalization(epsilon=1e-6)
