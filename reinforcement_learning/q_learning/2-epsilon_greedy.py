@@ -18,6 +18,6 @@ def epsilon_greedy(Q, state, epsilon):
     if p > epsilon:
         next_action = np.argmax(Q[state, :])
     else:
-        next_action = np.random.randint(Q.shape[1])
+        next_action = np.random.randint(0, Q.shape[1])
 
     return next_action
