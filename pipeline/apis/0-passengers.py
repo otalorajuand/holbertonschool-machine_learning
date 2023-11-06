@@ -17,7 +17,8 @@ def availableShips(passengerCount):
 
         for ship in lista:
             try:
-                n_passengers = int(ship.get('passengers'))
+                aux = ship.get('passengers').replace(',', '')
+                n_passengers = int(aux)
             except ValueError:
                 n_passengers = -1
 
