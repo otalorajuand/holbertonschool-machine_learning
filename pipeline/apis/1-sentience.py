@@ -16,8 +16,6 @@ def sentientPlanets():
 
         lista = r.json().get("results")
 
-        print(len(lista))
-
         for species in lista:
             homeworld = species.get('homeworld')
 
