@@ -35,6 +35,6 @@ if __name__ == '__main__':
     launch_pad_locality = launch_pad_request.json().get('locality')
 
     print("{} ({}) {} - {} ({})".format(launch_name, date,
-                                        rocker_name, 
-                                        launch_pad_name, 
+                                        rocker_name,
+                                        launch_pad_name,
                                         launch_pad_locality))
