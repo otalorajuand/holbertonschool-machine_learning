@@ -14,7 +14,6 @@ if __name__ == '__main__':
         if launch.get('date_unix') < first_launch_date:
             first_launch_date = int(launch.get('date_unix'))
             first_launch = launch
-            print(first_launch_date)
 
     # launch
     launch_name = first_launch.get('name')
@@ -36,4 +35,6 @@ if __name__ == '__main__':
     launch_pad_locality = launch_pad_request.json().get('locality')
 
     print("{} ({}) {} - {} ({})".format(launch_name, date,
-                                        rocker_name, launch_pad_name, launch_pad_locality))
+                                        rocker_name, 
+                                        launch_pad_name, 
+                                        launch_pad_locality))
