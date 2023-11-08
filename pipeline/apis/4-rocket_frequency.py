@@ -9,13 +9,16 @@ if __name__ == '__main__':
     rockets = {}
 
     launches_request = requests.get(
-        'https://api.spacexdata.com/v3/launches')
+        'https://api.spacexdata.com/v4/launches')
 
     launches_list = launches_request.json()
 
     for launch in launches_list:
-        rocket = launch.get('rocket')
-        rocket_name = rocket.get('rocket_name')
+        rocket_id = launch.get('rocket')
+        rocket_request = requests.get(
+            'https://api.spacexdata.com/v4/rockets/' +
+            rocket_id)
+        rocket_name = rocket_request.json().get('name')
 
         if rocket_name not in rockets.keys():
             rockets[rocket_name] = 1
