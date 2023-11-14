@@ -10,5 +10,4 @@ def list_all(mongo_collection):
 
     mongo_collection will be the pymongo collection object
     """
-
-    return mongo_collection.find()
+    return list(mongo_collection.find())
