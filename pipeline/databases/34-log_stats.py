@@ -30,5 +30,5 @@ if __name__ == "__main__":
     n_delete = len(list(collection.find({"method": "DELETE"})))
     print('\tmethod DELETE: {}'.format(n_delete))
 
-    n_status = len(list(collection.find({"method": "DELETE", "path": "/status"})))
+    n_status = len(list(collection.find({"method": "GET", "path": "/status"})))
     print('{} status check'.format(n_status))
