@@ -19,8 +19,7 @@ At the end of this project I was able to solve these conceptual questions:
 | [1-sentience.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/pipeline/apis/1-sentience.py)| Returns the list of names of the home planets of all sentient species. |
 | [2-user_location.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/pipeline/apis/2-user_location.py)| Retrieves github info. |
 | [3-first_launch.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/pipeline/apis/3-first_launch.py)| Displays the first launch of SpaceX. |
-| [4-rocket_frequency.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/pipeline/apis/4-rocket_frequency.py)| Displays the number of
-   launches per rocket of SpaceX. |
+| [4-rocket_frequency.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/pipeline/apis/4-rocket_frequency.py)| Displays the number of launches per rocket of SpaceX. |
 
 ### Try It On Your Machine :computer:
 ```bash
