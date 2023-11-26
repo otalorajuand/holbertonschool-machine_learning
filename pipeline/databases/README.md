@@ -1,6 +1,6 @@
 # Databases
 
-> 
+> The "Databases" project is a comprehensive exploration of relational and non-relational database concepts, SQL and NoSQL differences, and advanced functionalities in MySQL. It covers various topics, including table creation, query optimization, and the implementation of stored procedures, functions, views, and triggers. Through a series of SQL and Python scripts, participants gain practical insights into managing databases effectively. This project aims to provide a solid understanding of fundamental database principles and their application, catering to individuals seeking in-depth knowledge of database management and SQL/NoSQL systems.
 
 At the end of this project I was able to solve these conceptual questions:
 
@@ -54,10 +54,15 @@ At the end of this project I was able to solve these conceptual questions:
 | [27-count](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/pipeline/databases/27-count)| A script that displays the number of documents in the collection school. |
 | [28-update](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/pipeline/databases/28-update)| A script that adds a new attribute to a document in the collection school. |
 | [29-delete](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/pipeline/databases/29-delete)| A script that deletes all documents with name="Holberton school". |
-| []()|  |
+| [30-all.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/pipeline/databases/30-all.py)| Lists all documents in a collection. |
+| [31-insert_school.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/pipeline/databases/31-insert_school.py)| Inserts a new document in a collection based on kwargs. |
+| [32-update_topics.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/pipeline/databases/32-update_topics.py)| Changes all topics of a school document based on the name. |
+| [33-schools_by_topic.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/pipeline/databases/33-schools_by_topic.py)| Returns the list of school having a specific topic. |
+| [34-log_stats.py](https://github.com/otalorajuand/holbertonschool-machine_learning/blob/main/pipeline/databases/34-log_stats.py)| Gets stats about Nginx logs stored in MongoDB. |
+
 
 ### Try It On Your Machine :computer:
 ```bash
 git clone https://github.com/otalorajuand/holbertonschool-machine_learning.git
-cd pipeline/data_augmentation
+cd pipeline/databases
 ```
